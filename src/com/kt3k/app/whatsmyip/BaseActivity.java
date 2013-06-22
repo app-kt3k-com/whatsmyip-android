@@ -1,4 +1,4 @@
-package com.kt3k.app.hw;
+package com.kt3k.app.whatsmyip;
 
 import java.io.BufferedReader;
 import java.io.File;
