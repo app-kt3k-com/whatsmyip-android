@@ -1,3 +1,21 @@
+<html>
+<head><title>a</title></head>
+<style>
+body {
+    background-color: #fff;
+    color: #888;
+}
+</style>
+<script>
+
+setTimeout(function () {
+    alert('1');
+    window.device.toast("abc");
+    window.strawNativeInterface.exec('UI', 'toast', JSON.stringify({text: 'toast through straw plugin'}), '1');
+}, 1500);
+
+</script>
 <body>
 Hello, what's-my-ip.
 </body>
+</html>

@@ -29,6 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.kt3k.straw.Straw;
+import org.kt3k.straw.plugin.UIPlugin;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -159,7 +160,8 @@ public class BaseActivity extends Activity {
 		webView.addJavascriptInterface(jsi, JS_INTERFACE_NAME);
 
 		// Straw insert
-		Straw.insertInto(webView);
+		Straw straw = Straw.insertInto(webView);
+		straw.addPlugin("org.kt3k.straw.plugin.UIPlugin");
 
 
 		if (html == null || "".equals(html)) {
