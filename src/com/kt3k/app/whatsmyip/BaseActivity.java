@@ -28,6 +28,7 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.kt3k.straw.Straw;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -123,7 +124,8 @@ public class BaseActivity extends Activity {
 	/**
 	 * webView 関連の設定をする。
 	 */
-	@SuppressLint("SetJavaScriptEnabled") private void setUpWebView() {
+	@SuppressLint("SetJavaScriptEnabled")
+	private void setUpWebView() {
 		webView = new WebView(this);
 		if(url == null || "".equals(url)) {
 			url = this.getAppHome() + this.getAppIndex();
@@ -155,6 +157,9 @@ public class BaseActivity extends Activity {
 		// JavaScript interface 関連設定
 		jsi = new LondonBridge(this, webView);
 		webView.addJavascriptInterface(jsi, JS_INTERFACE_NAME);
+
+		// Straw insert
+		Straw.insertInto(webView);
 
 
 		if (html == null || "".equals(html)) {
