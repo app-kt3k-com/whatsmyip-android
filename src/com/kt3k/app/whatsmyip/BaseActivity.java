@@ -1045,10 +1045,5 @@ public class BaseActivity extends Activity {
 			activity.setResult(RESULT_OK, data);
 			activity.finish();
 		}
-
-		public void onDestroy() {
-			this.webView = null;
-			this.activity = null;
-		}
 	}
 }
