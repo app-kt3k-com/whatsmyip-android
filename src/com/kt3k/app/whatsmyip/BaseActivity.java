@@ -90,7 +90,7 @@ public class BaseActivity extends Activity {
 
 
 	/**
-	 * ウインドウ関連の設定をする。
+	 * do window settings
 	 */
 	private void windowSetting() {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -121,7 +121,7 @@ public class BaseActivity extends Activity {
 	}
 
 	/**
-	 * webView 関連の設定をする。
+	 * do WebView settings
 	 */
 	@SuppressLint("SetJavaScriptEnabled")
 	private void setUpWebView() {
@@ -137,12 +137,6 @@ public class BaseActivity extends Activity {
 		// WebViewClient と WebChromeClient をセット
 		webView.setWebViewClient(new CustomWebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
-
-
-		//webView.getSettings().setUseWideViewPort(true);
-		//webView.getSettings().setLoadWithOverviewMode(true);
-		//webView.setInitialScale(100);
-
 
 		// JavaScript を有効化
 		webView.getSettings().setJavaScriptEnabled(true);
@@ -269,14 +263,6 @@ public class BaseActivity extends Activity {
 		}
 	}
 
-	@Override
-	public void onDestroy(){
-		this.adView.destroy();
-		this.webView.destroy();
-
-		super.onDestroy();
-	}
-
 	class CustomWebViewClient extends WebViewClient {
 		private ProgressDialog dialog;
 
@@ -292,8 +278,6 @@ public class BaseActivity extends Activity {
 			dialog = new ProgressDialog(view.getContext());
 			dialog.setMessage(getStringWithDefault("wait_message", "Loading"));
 			dialog.show();
-
-			//jsi.injectJSON();
 		}
 
 		//ページ読み込み終了時の動作
@@ -501,11 +485,6 @@ public class BaseActivity extends Activity {
 			return items;
 		}
 
-		/*private boolean[] makeBooleanArray(final String jsonString) {
-			List<Boolean> list = makeBooleanList(jsonString);
-			return makeBooleanArray(list, list.size());
-		}*/
-
 		private boolean[] makeBooleanArray(final String jsonString, int length) {
 			List<Boolean> list = makeBooleanList(jsonString);
 			return makeBooleanArray(list, length);
@@ -689,13 +668,6 @@ public class BaseActivity extends Activity {
 			openBrowser(uri, null);
 		}
 
-		/**
-		 * webView をリロードする。
-		 */
-		public void reload() {
-			webView.reload();
-		}
-
 		public void openUrlWithJSON(String url, String menuJSON, String preHooks, String json) {
 			Intent i = new Intent(activity, BaseActivity.class);
 			i.putExtra("url", url);
@@ -766,8 +738,6 @@ public class BaseActivity extends Activity {
 						ahc.getConnectionManager().getSchemeRegistry().unregister("https");
 						ahc.getConnectionManager().getSchemeRegistry().register(new Scheme("https", sf, 443));
 
-						//log(url);
-						//log(callback);
 						HttpResponse res = ahc.execute(new HttpGet(url));
 						final String html = JSONObject.quote(httpResponseGetContent(res, "UTF-8"));
 						if (callback != null) {
@@ -785,25 +755,6 @@ public class BaseActivity extends Activity {
 
 		public void httpGet(String url, String callback) {
 			httpGet(url, callback, null);
-		}
-
-		public void httpPost(String url, String params, String callback, String errorCallback) {
-			String html = null;
-			try {
-				AndroidHttpClient ahc = AndroidHttpClient.newInstance("Android UserAgent");
-				HttpResponse res = ahc.execute(new HttpGet(url));
-				html = JSONObject.quote(httpResponseGetContent(res, "UTF-8"));
-				if (callback != null) {
-					jsi.jsExec("function(){(" + callback + ")(" + html + ");}");
-				}
-				ahc.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		public void httpPost(String url, String params, String callback) {
-			httpPost(url, params, callback, null);
 		}
 
 		private String httpResponseGetContent(HttpResponse res, String encoding) throws IllegalStateException, IOException {
