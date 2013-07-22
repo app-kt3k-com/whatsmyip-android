@@ -41,11 +41,11 @@ var straw = (function (window) {
     /**
      * Straw callback interface manager
      */
-    var exports = function () {
+    var Straw = function () {
         this.table = {};
     };
 
-    var strawPt = exports.prototype;
+    var strawPt = Straw.prototype;
 
     strawPt.exec = function (plugin, action, args, successCallback, errorCallback) {
         var callback = new CallbackPair(successCallback, errorCallback);
@@ -81,24 +81,7 @@ var straw = (function (window) {
         }
     };
 
-    var straw = new exports();
-
-    return straw;
-}(window));
-
-straw.http = (function (straw) {
-    'use strict';
-
-    var HTTP_PLUGIN = 'http';
-    var ACTION_GET = 'get';
-
-    var exports = {
-        get: function (url, callback, errorCallback) {
-            straw.exec(HTTP_PLUGIN, ACTION_GET, {
-                url: url
-            }, callback, errorCallback);
-        }
-    };
+    var exports = new Straw();
 
     return exports;
-}(straw));
+}(window));
