@@ -951,22 +951,6 @@ public class BaseActivity extends Activity {
 			alertDialog.show();
 		}
 
-		/**
-		 * トーストを表示する。
-		 * @param text 表示するテキスト
-		 */
-		public void toast(String text) {
-			Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
-		}
-
-		/**
-		 * トーストを長く表示する。
-		 * @param text 表示するテキスト
-		 */
-		public void toastLong(String text) {
-			Toast.makeText(activity, text, Toast.LENGTH_LONG).show();
-		}
-
 		public void log(String log) {
 			Log.d(getString(R.string.app_name), log);
 		}
