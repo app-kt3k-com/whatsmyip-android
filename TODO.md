@@ -13,3 +13,4 @@ Requiered Straw Plugin
 -[ ] back button
 -[ ] options menu
 -[ ] shared preference
+-[ ] log
