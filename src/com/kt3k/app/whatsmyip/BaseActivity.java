@@ -951,25 +951,6 @@ public class BaseActivity extends Activity {
 			alertDialog.show();
 		}
 
-		public void log(String log) {
-			Log.d(getString(R.string.app_name), log);
-		}
-		public void error(String log) {
-			Log.e(getString(R.string.app_name), log);
-		}
-		public void warn(String log) {
-			Log.w(getString(R.string.app_name), log);
-		}
-		public void info(String log) {
-			Log.i(getString(R.string.app_name), log);
-		}
-		public void debug(String log) {
-			Log.d(getString(R.string.app_name), log);
-		}
-		public void verbose(String log) {
-			Log.v(getString(R.string.app_name), log);
-		}
-
 		public void finish() {
 			activity.finish();
 		}
