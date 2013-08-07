@@ -11,6 +11,5 @@ Requiered Straw Plugin
 -[ ] http
 -[ ] https
 -[ ] back button
--[ ] options menu
 -[ ] shared preference
 -[ ] log
