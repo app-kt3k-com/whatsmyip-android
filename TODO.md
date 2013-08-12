@@ -1,15 +1,14 @@
 TODO
 ----
 
--[ ] app icon
--[ ] app description
--[ ] app name
+- app description
+- app name
 
 Requiered Straw Plugin
 ----------------------
 
--[ ] http
--[ ] https
--[ ] back button
--[ ] shared preference
--[ ] log
+- http
+- https
+- back button
+- shared preference
+- log
