@@ -7,7 +7,7 @@
     <uses-sdk android:minSdkVersion="8" />
 
     <application
-        android:icon="@drawable/hw_icon5"
+        android:icon="@drawable/ip.png"
         android:label="@string/app_name"
         android:hardwareAccelerated="true" >
         <activity
