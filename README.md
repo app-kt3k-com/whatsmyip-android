@@ -2,4 +2,4 @@
 My IP
 -----
 
-My excercise of Android app.
+Current IP address viewer and recorder app for Android. Use straw-android library.
