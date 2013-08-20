@@ -10,7 +10,7 @@ body {
 
 setTimeout(function () {
     alert('1');
-    window.straw.exec('ui', 'toast', JSON.stringify({text: 'toast through straw plugin'}), '1');
+    window.straw.exec('UI', 'toast', {text: 'toast through straw plugin'}, function () {}, function () {});
 }, 1500);
 
 </script>
