@@ -1,3 +1,5 @@
+// straw-android.js
+
 var straw = (function (window) {
     'use strict';
 
@@ -5,7 +7,6 @@ var straw = (function (window) {
     var JS_TO_NATIVE_INTERFACE_NAME = 'JS_TO_NATIVE_INTERFACE';
 
     var NATIVE_TO_JS_INTERFACE = window[NATIVE_TO_JS_INTERFACE_NAME] = {};
-    var JS_TO_NATIVE_INTERFACE = window[JS_TO_NATIVE_INTERFACE_NAME];
 
     NATIVE_TO_JS_INTERFACE.exec = function (callbackId, success, args, keepAlive) {
         straw.nativeCallback(callbackId, success, args, keepAlive);
@@ -28,7 +29,7 @@ var straw = (function (window) {
 
     CallbackPair.currentId = Math.floor(Math.random() * 10000000);
 
-    var callbackPairPt = callbackPair.prototype;
+    var callbackPairPt = CallbackPair.prototype;
 
     callbackPairPt.call = function (isSuccess, args) {
         if (isSuccess && typeof this.success === 'function') {
@@ -52,7 +53,7 @@ var straw = (function (window) {
 
         this.storeCallback(callback);
 
-        JS_TO_NATIVE_INTERFACE.exec(plugin, action, JSON.stringify(args), callback.id);
+        window[JS_TO_NATIVE_INTERFACE_NAME].exec(plugin, action, JSON.stringify(args), callback.id);
     };
 
     strawPt.storeCallback = function (callback) {
@@ -84,4 +85,5 @@ var straw = (function (window) {
     var exports = new Straw();
 
     return exports;
+
 }(window));
