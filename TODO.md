@@ -4,9 +4,16 @@ TODO
 - app description
 - app name
 
-Requiered Straw Plugin
-----------------------
+Straw Plugins
+-------------
 
-- http
 - back button
 - shared preference
+
+- bogus error on getName method checking
+- test of Background and RunOnUiThread annotations
+- fill some coverage missings
+
+DONE
+----
+- http
