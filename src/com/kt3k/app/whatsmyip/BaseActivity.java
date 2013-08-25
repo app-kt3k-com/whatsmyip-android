@@ -151,7 +151,7 @@ public class BaseActivity extends Activity {
 
 		// Straw insert
 		Straw straw = Straw.insertInto(webView);
-		straw.addPlugin("org.kt3k.straw.plugin.UIPlugin");
+		straw.addPlugins(org.kt3k.straw.plugin.BasicPlugins.names);
 
 
 		if (html == null || "".equals(html)) {
