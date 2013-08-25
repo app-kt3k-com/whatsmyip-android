@@ -8,9 +8,25 @@ body {
 </style>
 <script>
 
+var handleDynDNSResponse = function (args) {
+    var obj = parseDnyDNS(args.content);
+
+    alert(obj.addr);
+}
+
+var parseDynDNS = function (text) {
+    var doc = new DOMParser().parseFromString(text, 'text/xml');
+
+    var bodyText = $('body', doc).text();
+
+    return {
+        addr: bodyText
+    };
+};
+
 setTimeout(function () {
-    alert('1');
     window.straw.exec('ui', 'toast', {text: 'toast through straw plugin'}, function () {}, function () {});
+    window.straw.exec('http', 'get', {url: 'http://checkip.dyndns.com/'}, handleDynDNSResponse, function () {});
 }, 1500);
 
 </script>
