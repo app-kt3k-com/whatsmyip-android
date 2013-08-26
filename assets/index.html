@@ -17,14 +17,20 @@ var handleDynDNSResponse = function (args) {
     alert(obj.addr);
 }
 
+var reIPAddr = /(\d+\.\d+\.\d+\.\d+)/;
+
 var parseDynDNS = function (text) {
     var doc = new DOMParser().parseFromString(text, 'text/xml');
 
     var bodyText = $('body', doc).text();
 
-    return {
-        addr: bodyText
-    };
+    var match = reIPAddr.exec(bodyText);
+
+    if (match) {
+        return {addr: match[1]};
+    } else {
+        return {addr: null};
+    }
 };
 
 setTimeout(function () {
