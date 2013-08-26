@@ -6,10 +6,13 @@ body {
     color: #888;
 }
 </style>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/straw-android.js"></script>
+<script src="js/straw-android-http-plugin.js"></script>
 <script>
 
 var handleDynDNSResponse = function (args) {
-    var obj = parseDnyDNS(args.content);
+    var obj = parseDynDNS(args.content);
 
     alert(obj.addr);
 }
@@ -30,7 +33,6 @@ setTimeout(function () {
 }, 1500);
 
 </script>
-<script src="js/straw-android.js"></script>
 <body>
 Hello, what's-my-ip.
 </body>
