@@ -6,7 +6,7 @@ TODO
 - use static site generator and export to assets (do not modify directly on ./assets)
 - internationalization
 
-- fix application concept & spec
+- fix application concept & design
 - get new admob code for this app
 
 Straw Plugins
