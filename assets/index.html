@@ -26,7 +26,7 @@ var parseDynDNS = function (text) {
 
 setTimeout(function () {
     window.straw.exec('ui', 'toast', {text: 'toast through straw plugin'}, function () {}, function () {});
-    window.straw.exec('http', 'get', {url: 'http://checkip.dyndns.com/'}, handleDynDNSResponse, function () {});
+    window.straw.http.get('http://checkip.dyndns.com/').done(handleDynDNSResponse);
 }, 1500);
 
 </script>

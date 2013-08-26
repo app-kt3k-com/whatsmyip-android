@@ -7,10 +7,18 @@ straw.http = (function (straw) {
     var ACTION_GET = 'get';
 
     var exports = {
-        get: function (url, callback, errorCallback) {
+        get: function (url) {
+            var d = $.Deferred();
+
             straw.exec(HTTP_PLUGIN, ACTION_GET, {
                 url: url
-            }, callback, errorCallback);
+            }, function (x) {
+                d.resolve(x);
+            }, function (x) {
+                d.reject(x);
+            });
+
+            return d;
         }
     };
 
