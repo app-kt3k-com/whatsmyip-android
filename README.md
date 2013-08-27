@@ -1,4 +1,4 @@
-![My IP](https://raw.github.com/kt3k/com.kt3k.app.whatsmyip/master/raw_resources/logo_github.png)
+![My IP](https://raw.github.com/kt3k/com.kt3k.app.whatsmyip/master/image-resource/logo_github.png)
 My IP
 -----
 
