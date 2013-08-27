@@ -1,0 +1,21 @@
+{
+  "name": "whatsmyip-assets",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kt3k/com.kt3k.app.whatsmyip",
+  "authors": [
+    "Yosiya Hinosawa <stibium121@gmail.com>"
+  ],
+  "description": "assets dir for whatsmyip app",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  }
+}
