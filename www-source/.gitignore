@@ -3,3 +3,6 @@ bower_components
 
 # node modules
 node_modules
+
+# jekyll destination
+jekyll-dest

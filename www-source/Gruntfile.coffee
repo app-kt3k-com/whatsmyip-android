@@ -2,4 +2,14 @@
 
 module.exports = (g) ->
 
+  g.initConfig
+
+    jekyll:
+      abc:
+        options:
+          src: './jekyll-src'
+          dest: './jekyll-dest'
+
+  g.loadNpmTasks 'grunt-jekyll'
+
   g.registerTask 'default', ->
