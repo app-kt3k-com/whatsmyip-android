@@ -15,4 +15,4 @@ clean: build.xml
 	rm build.xml local.properties proguard-project.txt ant.properties .password
 
 compile-assets:
-	cd www-source; grunt
+	cd www-source; bundle install; grunt
