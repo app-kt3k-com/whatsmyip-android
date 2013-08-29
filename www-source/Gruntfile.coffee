@@ -12,4 +12,4 @@ module.exports = (g) ->
 
   g.loadNpmTasks 'grunt-jekyll'
 
-  g.registerTask 'default', ->
+  g.registerTask 'default', ['jekyll']
