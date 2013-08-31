@@ -15,9 +15,10 @@
     "test",
     "tests"
   ],
-  "dependencies": {
+  "devDependencies": {
     "jquery": "~2.0.3",
     "straw-android.js": "git@github.com:kt3k/straw-android.js.git",
-    "straw-android-plugin.js": "git@github.com:kt3k/straw-android-plugin.js.git"
+    "straw-android-plugin.js": "git@github.com:kt3k/straw-android-plugin.js.git",
+    "bootstrap": "~3.0.0"
   }
 }
