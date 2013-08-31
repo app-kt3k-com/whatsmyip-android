@@ -15,7 +15,7 @@ clean: build.xml
 	rm build.xml local.properties proguard-project.txt ant.properties .password
 
 compile-assets:
-	cd www-source; bundle install; grunt
+	cd www-source; bundle install; grunt; grunt copy:assets
 
 debug-install:
 	adb install -r bin/whatsmyip-debug.apk
