@@ -21,6 +21,14 @@ module.exports = (g) ->
         ]
         dest: 'jekyll-dest/js/'
 
+      assets:
+        expand: true
+        cwd: 'jekyll-dest/'
+        src: [
+          './**'
+        ]
+        dest: '../assets/'
+
   g.loadNpmTasks 'grunt-jekyll'
   g.loadNpmTasks 'grunt-contrib-copy'
 
