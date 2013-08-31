@@ -1,4 +1,4 @@
-.PHONY: debug release clean compile-assets
+.PHONY: debug release clean compile-assets debug-install
 
 debug: build.xml
 	ant debug
@@ -16,3 +16,6 @@ clean: build.xml
 
 compile-assets:
 	cd www-source; bundle install; grunt
+
+debug-install:
+	adb install -r bin/whatsmyip-debug.apk
