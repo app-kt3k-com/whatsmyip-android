@@ -14,12 +14,34 @@ module.exports = (g) ->
       js:
         expand: true
         flatten: true
+        cwd: 'bower_components/'
         src: [
-          'bower_components/jquery/jquery.min.js'
-          'bower_components/straw-android.js/src/straw-android.js'
-          'bower_components/straw-android-plugin.js/src/*'
+          'jquery/jquery.min.js'
+          'straw-android.js/src/straw-android.js'
+          'straw-android-plugin.js/src/*'
+          'bootstrap.zip/js/bootstrap.min.js'
         ]
         dest: 'jekyll-dest/js/'
+
+      css:
+        expand: true
+        flatten: true
+        cwd: 'bower_components/'
+        src: [
+          'bootstrap.zip/css/bootstrap-responsive.min.css'
+          'bootstrap.zip/css/bootstrap.min.css'
+        ]
+        dest: 'jekyll-dest/css/'
+
+      img:
+        expand: true
+        flatten: true
+        cwd: 'bower_components/'
+        src: [
+          'bootstrap.zip/img/glyphicons-halflings.png'
+          'bootstrap.zip/img/glyphicons-halflings-white.png'
+        ]
+        dest: 'jekyll-dest/img/'
 
       assets:
         expand: true
