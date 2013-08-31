@@ -40,3 +40,6 @@ proguard-project.txt
 
 # OS X folder attribute file
 .DS_Store
+
+# assets directory
+assets
