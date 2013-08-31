@@ -54,4 +54,4 @@ module.exports = (g) ->
   g.loadNpmTasks 'grunt-jekyll'
   g.loadNpmTasks 'grunt-contrib-copy'
 
-  g.registerTask 'default', ['jekyll', 'copy:js']
+  g.registerTask 'default', ['jekyll', 'copy:js', 'copy:css', 'copy:img']
