@@ -1,4 +1,4 @@
-.PHONY: debug release clean compile-assets debug-install
+.PHONY: debug release clean compile-assets debug-install device-test
 
 debug: build.xml
 	ant debug
@@ -19,3 +19,6 @@ compile-assets:
 
 debug-install:
 	adb install -r bin/whatsmyip-debug.apk
+
+device-test: compile-assets debug debug-install
+	echo
