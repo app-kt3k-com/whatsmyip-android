@@ -6,7 +6,7 @@ var handleDynDNSResponse = function (args) {
 
 var fillIpAddrAndRemoveProgressBar = function(ipAddr) {
     $('#ip-addr-progress-bar').css('display', 'none');
-    $('#ip-addr-label').text(ipAddr).css('display', 'inline');
+    $('#ip-addr-label').text(ipAddr).css('display', 'block');
 };
 
 var reIpAddr = /(\d+\.\d+\.\d+\.\d+)/;
