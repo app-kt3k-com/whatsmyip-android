@@ -1,13 +1,18 @@
 var handleDynDNSResponse = function (args) {
     var obj = parseDynDNS(args.content);
 
-    alert(obj.addr);
-}
+    fillIpAddrAndRemoveProgressBar(obj.addr);
+};
 
-var reIPAddr = /(\d+\.\d+\.\d+\.\d+)/;
+var fillIpAddrAndRemoveProgressBar = function(ipAddr) {
+    $('#ip-addr-progress-bar').css('display', 'none');
+    $('#ip-addr-label').text(ipAddr).css('display', 'inline');
+};
 
-var extractIPAddrFromText = function (text) {
-    var match = reIPAddr.exec(text);
+var reIpAddr = /(\d+\.\d+\.\d+\.\d+)/;
+
+var extractIpAddrFromText = function (text) {
+    var match = reIpAddr.exec(text);
 
     if (match) {
         return match[1];
@@ -21,12 +26,11 @@ var parseDynDNS = function (text) {
 
     var bodyText = $('body', doc).text();
 
-    return {addr: extractIPAddrFromText(bodyText)};
+    return {addr: extractIpAddrFromText(bodyText)};
 };
 
 
 setTimeout(function () {
-    window.straw.exec('ui', 'toast', {text: 'toast through straw plugin'}, function () {}, function () {});
+    window.straw.exec('ui', 'toast', {text: 'Welcome to My IP Address Finder app!'}, function () {}, function () {});
     window.straw.http.get('http://checkip.dyndns.com/').done(handleDynDNSResponse);
 }, 100);
-
