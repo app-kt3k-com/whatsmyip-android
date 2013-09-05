@@ -41,10 +41,14 @@ window.IpAddrFactory = (function () {
 
     exports.createFromSerializedString = function (str) {
         var args;
+
         try {
             args = JSON.parse(str);
         } catch (e) {
+            return null;
         };
+
+        return new window.IpAddr(args);
     };
 
     var reIpAddr = /(\d+\.\d+\.\d+\.\d+)/;
