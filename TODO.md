@@ -5,9 +5,10 @@ TODO
   - i18n.json
   - jekyll-level i18n
 
-- test application code
+- test application code - doing
 
 - timeout handling
+- shared preference plugin (store last 300 ip records)
 
 Financial
 ---------
@@ -18,7 +19,6 @@ Straw Plugins
 
 - http timeout feature implementation & test
 
-- back button
 - shared preference
 
 - bogus error on getName method checking
@@ -27,6 +27,7 @@ Straw Plugins
 
 LOW PRI
 -------
+- back button
 - app description
 
 DONE
