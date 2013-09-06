@@ -1,11 +1,9 @@
 
-var describe = window.describe;
-var it = window.it;
-var expect = window.expect;
-var IpRecord = window.IpRecord;
 
 describe('IpRecord', function () {
     'use strict';
+
+    var IpRecord = window.IpRecord;
 
     it('can be created', function () {
         expect(new IpRecord({

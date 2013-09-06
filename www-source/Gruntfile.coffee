@@ -14,13 +14,17 @@ module.exports = (g) ->
       options:
         jshintrc: '.jshintrc'
       source: ['jekyll-src/js/**/*.js']
-      test: ['test/**/*.js']
+      #test: ['test/**/*.js']
 
     jasmine:
       app:
-        src: ['jekyll-src/js/domain/iprecord.js']
+        src: [
+          'jekyll-src/js/domain/iprecord.js'
+          'jekyll-src/js/domain/iprecordfactory.js'
+        ]
         options:
           specs: 'test/*spec.js'
+          vendor: ['bower_components/jquery/jquery.min.js']
 
     copy:
       js:

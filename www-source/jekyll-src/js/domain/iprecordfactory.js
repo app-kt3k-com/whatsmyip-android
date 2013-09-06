@@ -7,14 +7,14 @@ window.IpRecordFactory = (function ($, straw) {
 
     exports.createUsingDynDNS = function () {
         return straw.http.get('http://checkip.dyndns.com/').pipe(function (obj) {
-            return new exports.createFromDynDNSRespnseText(obj.content);
+            return new exports.createFromDynDNSResponseText(obj.content);
         });
     };
 
     exports.createFromDynDNSResponseText = function (text) {
         var obj = parseDynDNS(text);
 
-        return new window.IpAddr({
+        return new window.IpRecord({
             ipAddr: obj.addr,
             ctime: new Date().getTime()
         });
@@ -29,7 +29,7 @@ window.IpRecordFactory = (function ($, straw) {
             return null;
         }
 
-        return new window.IpAddr(args);
+        return new window.IpRecord(args);
     };
 
     var reIpAddr = /(\d+\.\d+\.\d+\.\d+)/;
