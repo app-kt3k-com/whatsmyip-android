@@ -10,6 +10,12 @@ module.exports = (g) ->
           src: './jekyll-src'
           dest: './jekyll-dest'
 
+    jshint:
+      options:
+        jshintrc: '.jshintrc'
+      source: ['jekyll-src/js/**/*.js']
+      test: ['test/**/*.js']
+
     jasmine:
       app:
         src: ['jekyll-src/js/domain/iprecord.js']
@@ -59,6 +65,7 @@ module.exports = (g) ->
 
   g.loadNpmTasks 'grunt-jekyll'
   g.loadNpmTasks 'grunt-contrib-copy'
+  g.loadNpmTasks 'grunt-contrib-jshint'
   g.loadNpmTasks 'grunt-contrib-jasmine'
 
   g.registerTask 'compile', ['jekyll', 'copy:js', 'copy:css', 'copy:img']
