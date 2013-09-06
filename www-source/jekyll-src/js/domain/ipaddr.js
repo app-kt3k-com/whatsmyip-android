@@ -1,6 +1,6 @@
 // IpAddr model and its factory class
 
-window.IpAddr = (function () {
+window.IpRecord = (function () {
     'use strict';
 
     var exports = function (args) {
@@ -26,7 +26,7 @@ window.IpAddr = (function () {
     return exports;
 }());
 
-window.IpAddrFactory = (function () {
+window.IpRecordFactory = (function () {
 
     var exports = {};
 
