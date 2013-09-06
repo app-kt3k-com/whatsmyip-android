@@ -26,7 +26,8 @@ window.IpRecord = (function () {
     return exports;
 }());
 
-window.IpRecordFactory = (function () {
+window.IpRecordFactory = (function ($) {
+    'use strict';
 
     var exports = {};
 
@@ -35,7 +36,7 @@ window.IpRecordFactory = (function () {
 
         return new window.IpAddr({
             ipAddr: obj.addr,
-            ctime: (new Date).getTime()
+            ctime: new Date().getTime()
         });
     };
 
@@ -46,7 +47,7 @@ window.IpRecordFactory = (function () {
             args = JSON.parse(str);
         } catch (e) {
             return null;
-        };
+        }
 
         return new window.IpAddr(args);
     };
@@ -75,4 +76,4 @@ window.IpRecordFactory = (function () {
 
     return exports;
 
-}());
+}(window.$));
