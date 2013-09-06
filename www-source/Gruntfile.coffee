@@ -10,6 +10,12 @@ module.exports = (g) ->
           src: './jekyll-src'
           dest: './jekyll-dest'
 
+    jasmine:
+      app:
+        src: ['jekyll-src/js/domain/ipaddr.js']
+        options:
+          specs: 'test/*spec.js'
+
     copy:
       js:
         expand: true
@@ -53,5 +59,6 @@ module.exports = (g) ->
 
   g.loadNpmTasks 'grunt-jekyll'
   g.loadNpmTasks 'grunt-contrib-copy'
+  g.loadNpmTasks 'grunt-contrib-jasmine'
 
   g.registerTask 'default', ['jekyll', 'copy:js', 'copy:css', 'copy:img']
