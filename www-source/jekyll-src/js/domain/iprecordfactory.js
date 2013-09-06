@@ -1,11 +1,17 @@
 // Ip record factory class
 
-window.IpRecordFactory = (function ($) {
+window.IpRecordFactory = (function ($, straw) {
     'use strict';
 
     var exports = {};
 
-    exports.createFromDynDNSResponse = function (text) {
+    exports.createUsingDynDNS = function () {
+        return straw.http.get('http://checkip.dyndns.com/').pipe(function (obj) {
+            return new exports.createFromDynDNSRespnseText(obj.content);
+        });
+    };
+
+    exports.createFromDynDNSResponseText = function (text) {
         var obj = parseDynDNS(text);
 
         return new window.IpAddr({
@@ -50,4 +56,4 @@ window.IpRecordFactory = (function ($) {
 
     return exports;
 
-}(window.$));
+}(window.$, window.straw));
