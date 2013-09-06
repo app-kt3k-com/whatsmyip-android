@@ -12,7 +12,7 @@ module.exports = (g) ->
 
     jasmine:
       app:
-        src: ['jekyll-src/js/domain/ipaddr.js']
+        src: ['jekyll-src/js/domain/iprecord.js']
         options:
           specs: 'test/*spec.js'
 
