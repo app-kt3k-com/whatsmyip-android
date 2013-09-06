@@ -69,6 +69,6 @@ module.exports = (g) ->
   g.loadNpmTasks 'grunt-contrib-jasmine'
 
   g.registerTask 'compile', ['jekyll', 'copy:js', 'copy:css', 'copy:img']
-  g.registerTask 'test', ['jasmine:app']
+  g.registerTask 'test', ['jshint', 'jasmine']
 
   g.registerTask 'default', ['compile']
