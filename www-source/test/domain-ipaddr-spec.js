@@ -47,4 +47,21 @@ describe('IpRecord', function () {
         });
     });
 
+    describe('setCountryCode method', function () {
+
+        it('sets countryCode', function () {
+            var ipRec = new IpRecord({
+                ipAddr: '8.8.8.8',
+                ctime: 1300000000,
+                countryCode: 'JPN'
+            });
+
+            ipRec.setCountryCode('AAA');
+
+            expect(ipRec.countryCode).toBe('AAA');
+
+        });
+
+    });
+
 });
