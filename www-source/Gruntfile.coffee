@@ -75,4 +75,4 @@ module.exports = (g) ->
   g.registerTask 'compile', ['jekyll', 'copy:js', 'copy:css', 'copy:img']
   g.registerTask 'test', ['jshint', 'jasmine']
 
-  g.registerTask 'default', ['compile']
+  g.registerTask 'default', ['test']
