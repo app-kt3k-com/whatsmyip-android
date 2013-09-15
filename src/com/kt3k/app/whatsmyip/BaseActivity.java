@@ -165,8 +165,9 @@ public class BaseActivity extends Activity {
 		adView = new AdView(this, AdSize.BANNER, getPublisherId());
 
 		AdRequest adRequest = new AdRequest();
-		adRequest.addTestDevice(AdRequest.TEST_EMULATOR);               // Emulator
-		adRequest.addTestDevice("DA5B0069BA8827B46FD8DBDB70EB7FAE");                      // Test Android Device
+		adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
+		adRequest.addTestDevice("DA5B0069BA8827B46FD8DBDB70EB7FAE"); // Test Device 1
+		adRequest.addTestDevice("7DCEAF5D75884209E5102213D1EA33C6"); // Test Device 2
 		adView.loadAd(adRequest);
 	}
 
