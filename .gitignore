@@ -43,3 +43,6 @@ proguard-project.txt
 
 # assets directory
 assets
+
+# ivy dependency dir
+lib
