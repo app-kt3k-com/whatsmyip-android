@@ -1,18 +1,13 @@
 .PHONY: debug release clean compile-assets debug-install device-test
 
-debug: build.xml
+debug:
 	ant debug
 
-release: build.xml
+release:
 	ant release
 
-build.xml:
-	android update project -p ./ --name 'whatsmyip'
-
-clean: build.xml
+clean:
 	ant clean
-	touch build.xml local.properties proguard-project.txt ant.properties .password
-	rm build.xml local.properties proguard-project.txt ant.properties .password
 
 compile-assets:
 	cd www-source; bundle install; grunt compile; grunt copy:assets
@@ -20,5 +15,5 @@ compile-assets:
 debug-install:
 	adb install -r bin/whatsmyip-debug.apk
 
-device-test: compile-assets debug debug-install
+device-debug: compile-assets debug debug-install
 	echo
