@@ -1,8 +1,8 @@
 <ivy-module version="2.0">
     <info organisation="com.kt3k.app" module="whatmyip" />
     <dependencies>
-        <!-- dependency org="org.kt3k" name="straw" rev="0.1.6" /-->
-        <!-- dependency org="org.kt3k" name="straw-plugin" rev="0.0.5" /-->
+        <dependency org="org.kt3k" name="straw" rev="0.1.6" />
+        <dependency org="org.kt3k" name="straw-plugin" rev="0.0.5" />
         <dependency org="com.google.code.gson" name="gson" rev="2.2.4"/>
     </dependencies>
 </ivy-module>
