@@ -65,7 +65,7 @@ module.exports = (g) ->
         src: [
           './**'
         ]
-        dest: '../assets/'
+        dest: '../src/main/assets/'
 
   g.loadNpmTasks 'grunt-jekyll'
   g.loadNpmTasks 'grunt-contrib-copy'

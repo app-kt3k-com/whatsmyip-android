@@ -1,19 +1,19 @@
 .PHONY: debug release clean compile-assets debug-install device-test
 
 debug:
-	ant debug
+	gradle build
 
 release:
-	ant release
+	gradle build
 
 clean:
-	ant clean
+	gradle clean
 
 compile-assets:
 	cd www-source; bundle install; grunt compile; grunt copy:assets
 
 debug-install:
-	adb install -r bin/whatsmyip-debug.apk
+	adb install -r build/apk/whatsmyip-debug-unaligned.apk
 
 device-debug: compile-assets debug debug-install
-	echo
+	@echo
