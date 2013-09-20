@@ -43,3 +43,9 @@ assets
 
 # ivy dependency dir
 lib
+
+# gradle caches
+.gradle
+
+# gradle build dir
+build
