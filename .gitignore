@@ -1,5 +1,7 @@
-# Eclipse project files
+# Eclipse files
 .settings
+.classpath
+.project
 
 # Intellij project files
 *.iml
