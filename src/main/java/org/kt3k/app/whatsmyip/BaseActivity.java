@@ -294,38 +294,6 @@ public class BaseActivity extends Activity {
 		}
 	}
 
-	private class MySSLSocketFactory extends SSLSocketFactory {
-		SSLContext sslContext = SSLContext.getInstance("TLS");
-
-		public MySSLSocketFactory(KeyStore truststore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
-			super(truststore);
-
-			TrustManager tm = new X509TrustManager() {
-				public void checkClientTrusted(X509Certificate[] chain, String authType) {
-				}
-
-				public void checkServerTrusted(X509Certificate[] chain, String authType) {
-				}
-
-				public X509Certificate[] getAcceptedIssuers() {
-					return null;
-				}
-			};
-
-			sslContext.init(null, new TrustManager[] { tm }, null);
-		}
-
-		@Override
-		public Socket createSocket(Socket socket, String host, int port, boolean autoClose) throws IOException, UnknownHostException {
-			return sslContext.getSocketFactory().createSocket(socket, host, port, autoClose);
-		}
-
-		@Override
-		public Socket createSocket() throws IOException {
-			return sslContext.getSocketFactory().createSocket();
-		}
-	}
-
 	public class OptionMenuItem {
 		public final int id;
 		public final String	label;
@@ -712,58 +680,6 @@ public class BaseActivity extends Activity {
 
 		public void openHtml(String html) {
 			openHtml(html, getHome(), "[]", null);
-		}
-
-		/**
-		 * url に GET リクエストし、レスポンスの HTML を引数として、callback 関数を実行する。
-		 * エラーだった場合は、errorCallback 関数を実行する。
-		 * @param url
-		 * @param callback GET リクエスト成功時の JavaScript callback
-		 * @param errorCallback GET リクエスト失敗時の JavaScript callback
-		 */
-		public void httpGet(final String url, final String callback, final String errorCallback) {
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					try {
-						KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
-						trustStore.load(null, null);
-
-						SSLSocketFactory sf = new MySSLSocketFactory(trustStore);
-						sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-
-						AndroidHttpClient ahc = AndroidHttpClient.newInstance("Android UserAgent");
-
-						ahc.getConnectionManager().getSchemeRegistry().unregister("https");
-						ahc.getConnectionManager().getSchemeRegistry().register(new Scheme("https", sf, 443));
-
-						HttpResponse res = ahc.execute(new HttpGet(url));
-						final String html = JSONObject.quote(httpResponseGetContent(res, "UTF-8"));
-						if (callback != null) {
-							jsi.jsExec("function(){(" + callback + ")(" + html + ");}");
-						}
-						ahc.close();
-					} catch (Exception e) {
-						e.printStackTrace();
-						jsi.jsExec(errorCallback);
-
-					}
-				}
-			}).start();
-		}
-
-		public void httpGet(String url, String callback) {
-			httpGet(url, callback, null);
-		}
-
-		private String httpResponseGetContent(HttpResponse res, String encoding) throws IllegalStateException, IOException {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(res.getEntity().getContent(), encoding));
-			StringBuilder sb = new StringBuilder();
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-				sb.append(line + "\n");
-			}
-			return sb.toString();
 		}
 
 		public void showProgressDialog(final String message) {
