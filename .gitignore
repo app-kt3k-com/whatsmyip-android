@@ -4,11 +4,12 @@
 .project
 bin
 
-# Intellij project files
+# idea files
 *.iml
 *.ipr
 *.iws
 .idea/
+out
 
 # OS X folder attribute file
 .DS_Store
