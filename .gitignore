@@ -21,3 +21,6 @@ build
 
 # assets
 src/main/assets
+
+# android generated dir
+src/main/gen
