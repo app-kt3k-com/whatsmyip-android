@@ -30,10 +30,10 @@ tasks.withType(Compile) {
 
 dependencies {
     compile files('libs/GoogleAdMobAdsSdk-4.3.1.jar')
-    compile group: 'org.kt3k', name: 'straw', version: '0.1.4', {
+    compile group: 'org.kt3k.straw', name: 'straw', version: '0.1.6', {
         exclude group: 'com.google.android'
     }
-    compile group: 'org.kt3k', name: 'straw-plugin', version: '0.0.5', {
+    compile group: 'org.kt3k.straw', name: 'straw-plugin', version: '0.0.7', {
         exclude group: 'com.google.android'
     }
 }
