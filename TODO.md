@@ -13,6 +13,8 @@ TODO
 Financial
 ---------
 - get new admob code for this app
+- paypal upgrade
+  - send passport scan image
 
 Straw Plugins
 -------------
