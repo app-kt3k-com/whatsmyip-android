@@ -7,20 +7,20 @@ module.exports = (g) ->
     jekyll:
       abc:
         options:
-          src: './jekyll-src'
-          dest: './jekyll-dest'
+          src: 'src'
+          dest: 'dest'
 
     jshint:
       options:
         jshintrc: '.jshintrc'
-      source: ['jekyll-src/js/**/*.js']
+      source: ['src/js/**/*.js']
       #test: ['test/**/*.js']
 
     jasmine:
       app:
         src: [
-          'jekyll-src/js/domain/iprecord.js'
-          'jekyll-src/js/domain/iprecordfactory.js'
+          'src/js/domain/iprecord.js'
+          'src/js/domain/iprecordfactory.js'
         ]
         options:
           specs: 'test/*spec.js'
@@ -37,7 +37,7 @@ module.exports = (g) ->
           'straw-android-plugin.js/src/*'
           'bootstrap.zip/js/bootstrap.min.js'
         ]
-        dest: 'jekyll-dest/js/'
+        dest: 'dest/js/'
 
       css:
         expand: true
@@ -47,7 +47,7 @@ module.exports = (g) ->
           'bootstrap.zip/css/bootstrap-responsive.min.css'
           'bootstrap.zip/css/bootstrap.min.css'
         ]
-        dest: 'jekyll-dest/css/'
+        dest: 'dest/css/'
 
       img:
         expand: true
@@ -57,11 +57,11 @@ module.exports = (g) ->
           'bootstrap.zip/img/glyphicons-halflings.png'
           'bootstrap.zip/img/glyphicons-halflings-white.png'
         ]
-        dest: 'jekyll-dest/img/'
+        dest: 'dest/img/'
 
       assets:
         expand: true
-        cwd: 'jekyll-dest/'
+        cwd: 'dest/'
         src: [
           './**'
         ]

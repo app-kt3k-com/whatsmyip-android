@@ -5,4 +5,4 @@ bower_components
 node_modules
 
 # jekyll destination
-jekyll-dest
+dest
