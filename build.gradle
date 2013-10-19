@@ -33,7 +33,7 @@ dependencies {
     compile group: 'org.kt3k.straw', name: 'straw', version: '0.1.6', {
         exclude group: 'com.google.android'
     }
-    compile group: 'org.kt3k.straw', name: 'straw-plugin', version: '0.0.7', {
+    compile group: 'org.kt3k.straw', name: 'straw-plugin', version: '0.0.8', {
         exclude group: 'com.google.android'
     }
 }
