@@ -2,38 +2,33 @@ TODO
 ----
 
 - internationalization - doing
+  - implement <t> tag lib
   - i18n.json
-  - jekyll-level i18n
 
 - test application code - doing
 
-- timeout handling
-- shared preference plugin (store last 300 ip records)
 
 Financial
 ---------
 - get new admob code for this app
 - paypal upgrade
-  - send passport scan image
+  - take certificate picture
+  - get resident registry card
 
-Straw Plugins
--------------
-
-- http timeout feature implementation & test
-
-- shared preference
-
-- bogus error on getName method checking
-- fill some coverage missings
-- test http plugin
 
 LOW PRI
 -------
 - back button
 - app description
 
+
 DONE
 ----
+- http timeout feature implementation & test - done
+- shared preference plugin (store last 300 ip records) - done
+- bogus error on getName method checking - done
+- fill some coverage missings - done
+- test http plugin - done
 - http plugin
 - app name (My IP Address Finder(en), IPアドレス確認君(ja))
 - fix application concept & design - done
