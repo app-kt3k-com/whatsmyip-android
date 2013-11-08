@@ -25,7 +25,7 @@ window.IpRecordFactory = (function ($, straw) {
 
         return new window.IpRecord({
             ipAddr: obj.addr,
-            ctime: new Date().getTime()
+            createdAt: new Date().getTime()
         });
     };
 

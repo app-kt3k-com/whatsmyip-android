@@ -20,7 +20,7 @@ describe('IpRecordFactory', function () {
             expect(ipRec instanceof IpRecord).toBe(true);
 
             expect(ipRec.ipAddr).toBe('8.8.8.8');
-            expect(typeof ipRec.ctime).toBe('number');
+            expect(typeof ipRec.createdAt).toBe('number');
             expect(ipRec.countryCode).toEqual(null);
         });
 

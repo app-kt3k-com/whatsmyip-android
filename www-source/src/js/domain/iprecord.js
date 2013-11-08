@@ -5,7 +5,7 @@ window.IpRecord = (function () {
 
     var exports = function (args) {
         this.ipAddr = args.ipAddr;
-        this.ctime = args.ctime;
+        this.createdAt = args.createdAt;
         this.countryCode = args.countryCode;
     };
 
@@ -15,13 +15,21 @@ window.IpRecord = (function () {
         this.countryCode = code;
     };
 
+
     pt.serialize = function () {
-        return JSON.stringify({
-            ipAddr: this.ipAddr,
-            ctime: this.ctime,
-            countryCode: this.countryCode
-        });
+        return JSON.stringify(this.toObject());
     };
 
+
+    pt.toObject = function () {
+        return {
+            ipAddr: this.ipAddr,
+            createdAt: this.createdAt,
+            countryCode: this.countryCode
+        };
+    };
+
+
     return exports;
+
 }());
