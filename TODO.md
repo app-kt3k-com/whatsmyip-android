@@ -7,6 +7,8 @@ TODO
 
 - test application code - doing
 
+- implement history page
+
 
 Financial
 ---------
