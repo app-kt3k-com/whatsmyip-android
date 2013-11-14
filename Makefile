@@ -10,7 +10,9 @@ clean:
 	cd android; gradle clean
 
 compile-assets:
-	cd asset-src; bundle install; grunt compile; grunt copy:assets
+	cd middleman; bundle install; bundle exec middleman build
+	rm -rf android/src/main/assets
+	cp -r middleman/build android/src/main/assets
 
 debug-install:
 	adb install -r build/apk/whatsmyip-debug-unaligned.apk
