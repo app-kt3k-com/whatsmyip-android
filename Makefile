@@ -1,13 +1,13 @@
 .PHONY: debug release clean compile-assets debug-install device-test
 
 debug:
-	gradle build
+	cd android; gradle build
 
 release:
-	gradle build
+	cd android; gradle build
 
 clean:
-	gradle clean
+	cd android; gradle clean
 
 compile-assets:
 	cd asset-src; bundle install; grunt compile; grunt copy:assets

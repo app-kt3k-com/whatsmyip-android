@@ -21,7 +21,7 @@ out
 build
 
 # assets
-src/main/assets
+android/src/main/assets
 
 # android generated dir
-src/main/gen
+android/src/main/gen
