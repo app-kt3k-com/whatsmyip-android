@@ -1,13 +1,16 @@
 TODO
 ----
 
+- middlemanize
+- history page
+- release
+
 - internationalization - doing
   - implement <t> tag lib
   - i18n.json
 
 - test application code - doing
 
-- implement history page
 
 
 Financial
