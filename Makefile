@@ -1,21 +1,20 @@
 .PHONY: debug release clean compile-assets debug-install device-test
 
 debug:
-	cd android; gradle build
+	gradle build
 
 release:
-	cd android; gradle build
+	gradle build
 
 clean:
-	cd android; gradle clean
+	gradle clean
 
 compile-assets:
-	cd middleman; bundle install; bundle exec middleman build
-	rm -rf android/src/main/assets
-	cp -r middleman/build android/src/main/assets
+	bundle install
+	bundle exec middleman build
 
 debug-install:
-	adb install -r build/apk/whatsmyip-debug-unaligned.apk
+	adb install -r build/apk/whatsmyip-android-debug-unaligned.apk
 
 device-debug: compile-assets debug debug-install
 	@echo

@@ -2,7 +2,7 @@
 
 set :source, 'src/main/middleman'
 
-set :build_dir, 'build/middleman'
+set :build_dir, 'src/main/assets'
 
 set :css_dir, 'stylesheets'
 
