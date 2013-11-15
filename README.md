@@ -4,6 +4,7 @@ My ![My IP](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/src/mai
 Current IP address viewer and recorder app for Android. Use straw-android library.
 
 ```
+.
 ├── Gemfile             # for middleman
 ├── Gemfile.lock        # for middleman
 ├── Gruntfile.coffee    # grunt build file (for js testing)
