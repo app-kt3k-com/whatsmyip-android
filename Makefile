@@ -1,4 +1,4 @@
-.PHONY: debug release clean compile-assets debug-install device-test
+.PHONY: debug release clean compile-assets debug-install device-debug
 
 debug:
 	gradle build
