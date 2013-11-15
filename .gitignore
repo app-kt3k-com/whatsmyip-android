@@ -25,3 +25,9 @@ src/main/assets
 
 # android generated dir
 src/main/gen
+
+# npm modules
+node_modules
+
+# bower components
+bower_components
