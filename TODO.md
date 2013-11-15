@@ -1,15 +1,19 @@
 TODO
 ----
 
-- middlemanize
+- *middlemanize
 - history page
-- release
-
 - internationalization - doing
   - implement <t> tag lib
   - i18n.json
+- release
 
-- test application code - doing
+
+- straw-ios
+- straw-ios-plugin
+- straw-ios.js
+- straw-ios-plugin.js
+
 
 
 
@@ -25,6 +29,8 @@ LOW PRI
 -------
 - back button
 - app description
+
+- straw-android switch to gradle
 
 
 DONE
