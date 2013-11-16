@@ -1,4 +1,7 @@
 
+var describe = window.describe;
+var expect = window.expect;
+var it = window.it;
 
 describe('IpRecordFactory', function () {
     'use strict';

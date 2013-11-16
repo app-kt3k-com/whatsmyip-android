@@ -8,7 +8,7 @@ module.exports = (g) ->
       options:
         jshintrc: '.jshintrc'
       source: ['src/main/js/**/*.js']
-      #test: ['src/test/js/*.js']
+      test: ['src/test/js/*.js']
 
     jasmine:
       app:
