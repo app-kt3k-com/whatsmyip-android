@@ -16,9 +16,12 @@ var fillIpAddrAndRemoveProgressBar = function (ipAddr) {
     $(IP_ADDR_LABEL_ID).text(ipAddr).css('display', 'block');
 };
 
-$(function () {
+var indexMain = function () {
     'use strict';
 
-    window.straw.exec('ui', 'toast', {text: 'Welcome to My IP Address Finder app!'}, function () {}, function () {});
+    // toast welcome message
+    window.straw.ui.toast('Welcome to My IP Address Finder app!');
+
+    // fetch ip and display
     window.IpRecordFactory.createUsingDynDNS().done(displayNewIpRecord);
-});
+};
