@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.kt3k.straw.Straw;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
@@ -26,7 +27,7 @@ public class BaseActivity extends Activity {
     private LinearLayout layout;
 
     private Boolean adEnabled = true;
-    private String url = null;
+    private String url;
 
     /**
      * set up window
@@ -70,6 +71,7 @@ public class BaseActivity extends Activity {
     /**
      * set up the WebView
      */
+    @SuppressLint("SetJavaScriptEnabled")
     private void setUpWebView() {
 
         // create WebView
