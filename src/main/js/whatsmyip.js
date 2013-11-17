@@ -56,7 +56,12 @@ window.startLoading = function () {
 window.indexMain = function () {
     'use strict';
 
-    $.getScript('i18n/en.js').done(function () {
+    var i18n = window.i18n;
+
+    i18n.setAvailableLanguages(['en', 'ja']);
+    i18n.setLanguage('ja-Jpan-JP');
+
+    i18n.loadScript('i18n/{LANGUAGE}.js').done(function () {
 
       uiChangeHook();
 

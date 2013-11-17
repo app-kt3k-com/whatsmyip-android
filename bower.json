@@ -21,6 +21,6 @@
     "straw-android.js": "git://github.com/strawjs/straw-android.js.git#v0.1.5",
     "straw-android-plugin.js": "git://github.com/strawjs/straw-android-plugin.js.git#v0.0.2",
     "font-awesome-4.0.3.zip": "http://fontawesome.io/assets/font-awesome-4.0.3.zip",
-    "i18n.js": "git://github.com/kt3k/i18n.js#v0.0.1"
+    "i18n.js": "git://github.com/kt3k/i18n.js#v0.0.2"
   }
 }
