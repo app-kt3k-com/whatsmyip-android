@@ -1,12 +1,6 @@
 TODO
 ----
 
-- i18n
-  - functions
-    - <t> tag
-    - .t-attr class, .t-text class
-  - i18n.json
-
 - open browser plugin
   - just open url in browser
 - straw i18n plugin
@@ -46,6 +40,11 @@ LOW PRI
 
 DONE
 ----
+- i18n - done
+  - functions
+    - <t> tag
+    - .t-attr class, .t-text class
+  - i18n.json
 - *middlemanize - done - it's good!
 - http timeout feature implementation & test - done
 - shared preference plugin (store last 300 ip records) - done
