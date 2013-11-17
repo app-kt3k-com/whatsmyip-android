@@ -4,6 +4,10 @@ var IP_LOADING_ID = '#ip-loading';
 var IP_INPUT_ID = '#ip-input';
 var IP_RELOAD_BUTTON_ID = '#ip-reload-button';
 
+var uiChangeHook = function () {
+    window.i18n.scan();
+};
+
 var displayNewIpRecord = function (ipRecord) {
     'use strict';
 
@@ -24,6 +28,8 @@ var fillIpAddrAndRemoveProgressBar = function (ipAddr) {
 
     // fill info color
     $(IP_RELOAD_BUTTON_ID).addClass('alert-info');
+
+    uiChangeHook();
 };
 
 window.startLoading = function () {
@@ -43,10 +49,19 @@ window.startLoading = function () {
 
     // fetch ip and display
     window.IpRecordFactory.createUsingDynDNS().done(displayNewIpRecord);
+
+    uiChangeHook();
 };
 
 window.indexMain = function () {
     'use strict';
+
+    window.i18n.setResource({
+        //'common.loading': 'Loading...',
+        'common.loading': '読み込み中...',
+    });
+
+    uiChangeHook();
 
     // toast welcome message
     window.straw.ui.toast('Welcome to My IP Address Finder app!');

@@ -10,6 +10,14 @@ body, html {
 }
 
 
+/* hide untranslated elems */
+t, .t-text, .t-attr {
+
+    visibility: hidden;
+
+}
+
+
 footer {
     margin-top: 50px;
     border-top: solid 1px #bbb;
