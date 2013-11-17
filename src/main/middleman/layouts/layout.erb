@@ -9,16 +9,18 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "App" %></title>
     
-    <link rel="stylesheet" href="./stylesheets/normalize.css" />
+    <link rel="stylesheet" href="./fa/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./stylesheets/all.css" />
+
     <script src="./javascripts/all.js"></script>
+
   </head>
   
   <body class="<%= page_classes %>">
 
     <div class="navbar navbar-inverse" role="navigation">
 
-      <span class="navbar-brand disabled" style="color: #e5e5e5; float: none; display: inline-block;">
+      <span class="navbar-brand disabled" style="color: #e5e5e5; font-weight: bold; float: none; display: inline-block;">
 
         My <img src="images/ip.png" width="36" height="36"/> Address
 
