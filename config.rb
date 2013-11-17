@@ -11,3 +11,5 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
 set :bower_dir, '../../../bower_components'
+
+sprockets.append_path '../js'
