@@ -1,7 +1,7 @@
 PACKAGE=com.kt3k.app.whatsmyip
 ACTIVITY=$(PACKAGE).BaseActivity
 
-.PHONY: debug release clean compile-assets debug-install device-debug
+.PHONY: debug release clean grunt compile-assets debug-install device-debug
 
 debug:
 	gradle build
@@ -11,6 +11,9 @@ release:
 
 clean:
 	gradle clean
+
+grunt:
+	grunt
 
 compile-assets:
 	bundle install
@@ -25,5 +28,5 @@ device-launch-app:
 device-logcat:
 	adb logcat
 
-device-debug: compile-assets debug debug-install device-launch-app device-logcat
+device-debug: grunt compile-assets debug debug-install device-launch-app device-logcat
 	@echo
