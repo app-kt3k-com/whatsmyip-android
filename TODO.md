@@ -1,11 +1,19 @@
 TODO
 ----
 
-- *middlemanize
-- history page
-- internationalization - doing
-  - implement <t> tag lib
+- i18n
+  - functions
+    - <t> tag
+    - .t-attr class, .t-text class
   - i18n.json
+
+- open browser plugin
+  - just open url in browser
+- straw i18n plugin
+  - just return language-tags
+
+- ipRepo testing
+- history page
 - release
 
 
@@ -27,7 +35,10 @@ Financial
 
 LOW PRI
 -------
-- back button
+- straw debug plugin
+  - dump available plugins
+  - show straw version etc
+- back button plugin
 - app description
 
 - straw-android switch to gradle
@@ -35,6 +46,7 @@ LOW PRI
 
 DONE
 ----
+- *middlemanize - done - it's good!
 - http timeout feature implementation & test - done
 - shared preference plugin (store last 300 ip records) - done
 - bogus error on getName method checking - done
