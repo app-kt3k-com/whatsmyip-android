@@ -1,10 +1,14 @@
 var $ = window.$;
 
-var IP_ADDR_PROGRESS_BAR_ID = '#ip-addr-progress-bar';
-var IP_ADDR_LABEL_ID = '#ip-addr-label';
+var IP_LOADING_ID = '#ip-loading';
+var IP_INPUT_ID = '#ip-input';
+var IP_RELOAD_BUTTON_ID = '#ip-reload-button';
 
 var displayNewIpRecord = function (ipRecord) {
     'use strict';
+
+    // toast welcome message
+    window.straw.ui.toast('Done!');
 
     fillIpAddrAndRemoveProgressBar(ipRecord.ipAddr);
 };
@@ -12,16 +16,42 @@ var displayNewIpRecord = function (ipRecord) {
 var fillIpAddrAndRemoveProgressBar = function (ipAddr) {
     'use strict';
 
-    $(IP_ADDR_PROGRESS_BAR_ID).css('display', 'none');
-    $(IP_ADDR_LABEL_ID).text(ipAddr).css('display', 'block');
+    // set ip label
+    $(IP_INPUT_ID).val(ipAddr);
+
+    // stop spin and thumbs up
+    $(IP_LOADING_ID).removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-thumbs-o-up');
+
+    // fill info color
+    $(IP_RELOAD_BUTTON_ID).addClass('alert-info');
 };
 
-var indexMain = function () {
+window.startLoading = function () {
+    'use strict';
+
+    // toast welcome message
+    window.straw.ui.toast('Start checking ip address...');
+
+    // remove ip label
+    $(IP_INPUT_ID).val('');
+
+    // spin refresh icon
+    $(IP_LOADING_ID).addClass('fa-refresh').addClass('fa-spin').removeClass('fa-thumbs-o-up');
+
+    // remove info color
+    $(IP_RELOAD_BUTTON_ID).removeClass('alert-info');
+
+    // fetch ip and display
+    window.IpRecordFactory.createUsingDynDNS().done(displayNewIpRecord);
+};
+
+window.indexMain = function () {
     'use strict';
 
     // toast welcome message
     window.straw.ui.toast('Welcome to My IP Address Finder app!');
 
-    // fetch ip and display
-    window.IpRecordFactory.createUsingDynDNS().done(displayNewIpRecord);
+    $(IP_RELOAD_BUTTON_ID).click(window.startLoading);
+
+    window.startLoading();
 };
