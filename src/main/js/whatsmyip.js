@@ -56,17 +56,13 @@ window.startLoading = function () {
 window.indexMain = function () {
     'use strict';
 
-    window.i18n.setResource({
-        //'common.loading': 'Loading...',
-        'common.loading': '読み込み中...',
+    $.getScript('i18n/en.js').done(function () {
+
+      uiChangeHook();
+
+      $(IP_RELOAD_BUTTON_ID).click(window.startLoading);
+
+      window.startLoading();
+
     });
-
-    uiChangeHook();
-
-    // toast welcome message
-    window.straw.ui.toast('Welcome to My IP Address Finder app!');
-
-    $(IP_RELOAD_BUTTON_ID).click(window.startLoading);
-
-    window.startLoading();
 };
