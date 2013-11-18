@@ -1,10 +1,17 @@
 TODO
 ----
 
+- straw-android.js
+  - fix handling of the message from native (remove the meaning less JSON.stringify)
+
 - open browser plugin
   - just open url in browser
 - straw i18n plugin
   - just return language-tags
+
+- ip get quality
+  - http auto-retry feature
+  - debug silent failure cases
 
 - ipRepo testing
 - history page
