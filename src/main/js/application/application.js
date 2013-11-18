@@ -5,6 +5,8 @@ var IP_INPUT_ID = '#ip-input';
 var IP_RELOAD_BUTTON_ID = '#ip-reload-button';
 
 var uiChangeHook = function () {
+    'use strict';
+
     window.i18n.scan();
 };
 
@@ -63,11 +65,11 @@ window.indexMain = function () {
 
     i18n.loadScript('i18n/{LANGUAGE}.js').done(function () {
 
-      uiChangeHook();
+        uiChangeHook();
 
-      $(IP_RELOAD_BUTTON_ID).click(window.startLoading);
+        $(IP_RELOAD_BUTTON_ID).click(window.startLoading);
 
-      window.startLoading();
+        window.startLoading();
 
     });
 };
