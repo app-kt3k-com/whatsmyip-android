@@ -4,10 +4,10 @@ TODO
 - straw-android.js
   - fix handling of the message from native (remove the meaning less JSON.stringify)
 
-- open browser plugin
-  - just open url in browser
-- straw i18n plugin
-  - just return language-tags
+- browser plugin
+  - straw.browser.open(url) => browser opens with url
+- local plugin
+  - straw.local.getLanguage() => 'en', 'ja'
 
 - ip get quality
   - http auto-retry feature
