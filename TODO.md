@@ -1,17 +1,6 @@
 TODO
 ----
 
-- straw-android.js
-  - fix handling of the message from native (remove the meaning less JSON.stringify)
-
-- browser plugin
-  - straw.browser.open(url) => browser opens with url
-- local plugin
-  - straw.local.getLanguage() => 'en', 'ja'
-
-- ip get quality
-  - http auto-retry feature
-  - debug silent failure cases
 
 - ipRepo testing
 - history page
@@ -19,6 +8,10 @@ TODO
 
 
 - straw-ios
+  - study cocoapods
+    - podfile, straw.podspec
+  - fix class names
+    - STStraw ?
 - straw-ios-plugin
 - straw-ios.js
 - straw-ios-plugin.js
@@ -47,6 +40,15 @@ LOW PRI
 
 DONE
 ----
+- ip get quality - done
+  - http auto-retry feature - easily implemented in javascript
+  - debug silent failure cases - the cause was the ridiculous behaviour of default proxy settings for UrlConnection, that was too slow and inaccurate.
+- straw-android.js - done
+  - fix handling of the message from native (remove the meaning less JSON.stringify)
+- browser plugin - done
+  - straw.browser.open(url) => browser opens with url
+- local plugin - done
+  - straw.local.getLanguage() => 'en', 'ja'
 - i18n - done
   - functions
     - <t> tag
