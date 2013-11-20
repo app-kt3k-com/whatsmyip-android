@@ -7,6 +7,12 @@ TODO
 - release
 
 
+- review notifier
+  - suggest to review app after 10 times success use of app
+    - if user doesn't review, remind again after some reasonable period
+    - if user reviewed, then stop reminding
+
+
 - straw-ios
   - study cocoapods
     - podfile, straw.podspec
