@@ -65,16 +65,22 @@ window.index.main = function () {
     var i18n = window.i18n;
 
     i18n.setAvailableLanguages(['en', 'ja']);
-    i18n.setLanguage('ja-Jpan-JP');
+
+    window.straw.locale.getLanguage().done(function (language) {
+        window.alert(language);
+        i18n.setLanguage(language);
 
 
-    i18n.loadScript('i18n/{LANGUAGE}.js').done(function () {
+        i18n.loadScript('i18n/{LANGUAGE}.js').done(function () {
 
-        uiChangeHook();
+            uiChangeHook();
 
-        $(IP_RELOAD_BUTTON_ID).click(window.startLoading);
+            $(IP_RELOAD_BUTTON_ID).click(window.startLoading);
 
-        window.startLoading();
+            window.startLoading();
+
+        });
 
     });
+
 };
