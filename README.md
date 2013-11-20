@@ -3,6 +3,9 @@ My ![My IP](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/src/mai
 
 Current IP address viewer and recorder app for Android. Use straw-android library.
 
+Directory Structure
+-------------------
+
 ```
 .
 ├── Gemfile             # for middleman
@@ -24,3 +27,14 @@ Current IP address viewer and recorder app for Android. Use straw-android librar
     └── test
         └── js                     # js test sources
 ```
+
+
+Tools Used
+----------
+
+- bower for frontend dependency management
+- grunt for js testing
+- middleman for asset directory building
+- gradle for android app building
+- straw-android for native bridging from browser JavaScript
+- bootstrap for frontend ui framework
