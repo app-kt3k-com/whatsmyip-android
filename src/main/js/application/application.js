@@ -50,18 +50,23 @@ window.startLoading = function () {
     $(IP_RELOAD_BUTTON_ID).removeClass('alert-info');
 
     // fetch ip and display
-    window.IpRecordFactory.createUsingDynDNS().done(displayNewIpRecord);
+    window.IpRecordFactory.createUsingDynDNS()
+        .done(displayNewIpRecord)
+        .fail(window.startLoading);
 
     uiChangeHook();
 };
 
-window.indexMain = function () {
+window.index = {};
+
+window.index.main = function () {
     'use strict';
 
     var i18n = window.i18n;
 
     i18n.setAvailableLanguages(['en', 'ja']);
     i18n.setLanguage('ja-Jpan-JP');
+
 
     i18n.loadScript('i18n/{LANGUAGE}.js').done(function () {
 
