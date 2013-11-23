@@ -4,7 +4,11 @@ var IP_LOADING_ID = '#ip-loading';
 var IP_INPUT_ID = '#ip-input';
 var IP_RELOAD_BUTTON_ID = '#ip-reload-button';
 
-var uiChangeHook = function () {
+window.common = {};
+
+window.index = {};
+
+window.common.scan = function () {
     'use strict';
 
     window.i18n.scan();
@@ -13,8 +17,10 @@ var uiChangeHook = function () {
 var displayNewIpRecord = function (ipRecord) {
     'use strict';
 
+    var i18n = window.i18n;
+
     // toast welcome message
-    window.straw.ui.toast('Done!');
+    window.straw.ui.toast(i18n.t('ip.done'));
 
     fillIpAddrAndRemoveProgressBar(ipRecord.ipAddr);
 };
@@ -31,14 +37,16 @@ var fillIpAddrAndRemoveProgressBar = function (ipAddr) {
     // fill info color
     $(IP_RELOAD_BUTTON_ID).addClass('alert-info');
 
-    uiChangeHook();
+    window.common.scan();
 };
 
-window.startLoading = function () {
+window.index.startLoading = function () {
     'use strict';
 
+    var i18n = window.i18n;
+
     // toast welcome message
-    window.straw.ui.toast('Start checking ip address...');
+    window.straw.ui.toast(i18n.t('ip.start_loading'));
 
     // remove ip label
     $(IP_INPUT_ID).val('');
@@ -52,35 +60,44 @@ window.startLoading = function () {
     // fetch ip and display
     window.IpRecordFactory.createUsingDynDNS()
         .done(displayNewIpRecord)
-        .fail(window.startLoading);
+        .fail(window.index.startLoading);
 
-    uiChangeHook();
+    window.common.scan();
 };
 
-window.index = {};
-
-window.index.main = function () {
+window.common.initI18n = function () {
     'use strict';
 
     var i18n = window.i18n;
 
     i18n.setAvailableLanguages(['en', 'ja']);
 
-    window.straw.locale.getLanguage().done(function (language) {
-        window.alert(language);
+    return window.straw.locale.getLanguage().pipe(function (language) {
+
         i18n.setLanguage(language);
 
+        return i18n.loadScript('i18n/{LANGUAGE}.js');
 
-        i18n.loadScript('i18n/{LANGUAGE}.js').done(function () {
+    });
+};
 
-            uiChangeHook();
+window.index.main = function () {
+    'use strict';
 
-            $(IP_RELOAD_BUTTON_ID).click(window.startLoading);
+    window.common.initI18n().done(function () {
 
-            window.startLoading();
+        window.common.scan();
 
-        });
+        window.index.initEvents();
+
+        window.index.startLoading();
 
     });
 
+};
+
+window.index.initEvents = function () {
+    'use strict';
+
+    $(IP_RELOAD_BUTTON_ID).click(window.index.startLoading);
 };
