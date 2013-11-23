@@ -3,12 +3,14 @@ TODO
 
 
 - ipRepo testing
+- link to history page
+- reload button
 - history page
 - release
 
 
-- review notifier
-  - suggest to review app after 10 times success use of app
+- review reminder
+  - remind to review app after 10 times success use of app
     - if user doesn't review, remind again after some reasonable period
     - if user reviewed, then stop reminding
 
@@ -46,6 +48,7 @@ LOW PRI
 
 DONE
 ----
+- internationalization - done! yeah!
 - ip get quality - done
   - http auto-retry feature - easily implemented in javascript
   - debug silent failure cases - the cause was the ridiculous behaviour of default proxy settings for UrlConnection, that was too slow and inaccurate.
