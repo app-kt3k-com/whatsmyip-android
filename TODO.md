@@ -5,7 +5,6 @@ TODO
 - ipRepo testing
 - link to history page
 - reload button
-- history page
 - release
 
 
@@ -48,6 +47,8 @@ LOW PRI
 
 DONE
 ----
+- history page - done
+  - records.html
 - internationalization - done! yeah!
 - ip get quality - done
   - http auto-retry feature - easily implemented in javascript
