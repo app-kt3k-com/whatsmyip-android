@@ -11,11 +11,13 @@ body, html {
 
 
 /* hide untranslated elems */
+/** /
 t, .t-text, .t-attr {
 
     visibility: hidden;
 
 }
+//*/
 
 
 footer {
