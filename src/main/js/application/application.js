@@ -2,7 +2,7 @@ var $ = window.$;
 
 var IP_LOADING_ID = '#ip-loading';
 var IP_INPUT_ID = '#ip-input';
-var IP_RELOAD_BUTTON_ID = '#ip-reload-button';
+var IP_RELOAD_BUTTON_CLASS = '.ip-reload-button';
 
 window.common = {};
 
@@ -72,13 +72,22 @@ window.common.initI18n = function () {
 
     i18n.setAvailableLanguages(['en', 'ja']);
 
-    return window.straw.locale.getLanguage().pipe(function (language) {
+    return window.common.getLanguage(window.config.language).pipe(function (language) {
 
         i18n.setLanguage(language);
 
         return i18n.loadScript('i18n/{LANGUAGE}.js');
 
     });
+};
+
+window.common.getLanguage = function (language) {
+
+    if (language) {
+        return $.Deferred().resolve(language).promise();
+    }
+
+    return window.straw.locale.getLanguage();
 };
 
 window.index.main = function () {
@@ -99,5 +108,5 @@ window.index.main = function () {
 window.index.initEvents = function () {
     'use strict';
 
-    $(IP_RELOAD_BUTTON_ID).click(window.index.startLoading);
+    $(IP_RELOAD_BUTTON_CLASS).click(window.index.startLoading);
 };
