@@ -3,6 +3,9 @@ ACTIVITY=$(PACKAGE).BaseActivity
 
 .PHONY: debug release clean grunt compile-assets debug-install device-debug
 
+device-debug: grunt compile-assets debug debug-install device-launch-app device-logcat
+	@echo
+
 debug:
 	gradle build
 
@@ -27,6 +30,3 @@ device-launch-app:
 
 device-logcat:
 	adb logcat
-
-device-debug: grunt compile-assets debug debug-install device-launch-app device-logcat
-	@echo
