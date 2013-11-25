@@ -3,6 +3,7 @@ var $ = window.$;
 var IP_LOADING_ID = '#ip-loading';
 var IP_INPUT_ID = '#ip-input';
 var IP_RELOAD_BUTTON_CLASS = '.ip-reload-button';
+var IP_INDICATOR_CLASS = '.ip-indicator';
 
 window.common = {};
 
@@ -35,7 +36,7 @@ var fillIpAddrAndRemoveProgressBar = function (ipAddr) {
     $(IP_LOADING_ID).removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-thumbs-o-up');
 
     // fill info color
-    $(IP_RELOAD_BUTTON_ID).addClass('alert-info');
+    $(IP_INDICATOR_CLASS).addClass('alert-info');
 
     window.common.scan();
 };
@@ -55,7 +56,7 @@ window.index.startLoading = function () {
     $(IP_LOADING_ID).addClass('fa-refresh').addClass('fa-spin').removeClass('fa-thumbs-o-up');
 
     // remove info color
-    $(IP_RELOAD_BUTTON_ID).removeClass('alert-info');
+    $(IP_INDICATOR_CLASS).removeClass('alert-info');
 
     // fetch ip and display
     window.IpRecordFactory.createUsingDynDNS()
@@ -82,6 +83,7 @@ window.common.initI18n = function () {
 };
 
 window.common.getLanguage = function (language) {
+    'use strict';
 
     if (language) {
         return $.Deferred().resolve(language).promise();
