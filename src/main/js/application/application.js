@@ -5,6 +5,10 @@ var IP_INPUT_ID = '#ip-input';
 var IP_RELOAD_BUTTON_CLASS = '.ip-reload-button';
 var IP_INDICATOR_CLASS = '.ip-indicator';
 
+var IP_LOAD_DONE = '.ip-load-done';
+
+var LINK_TO_HISTORY = '.link-to-history';
+
 window.common = {};
 
 window.index = {};
@@ -23,10 +27,10 @@ var displayNewIpRecord = function (ipRecord) {
     // toast welcome message
     window.straw.ui.toast(i18n.t('ip.done'));
 
-    fillIpAddrAndRemoveProgressBar(ipRecord.ipAddr);
+    fillIpAddr(ipRecord.ipAddr);
 };
 
-var fillIpAddrAndRemoveProgressBar = function (ipAddr) {
+var fillIpAddr = function (ipAddr) {
     'use strict';
 
     // set ip label
@@ -37,6 +41,9 @@ var fillIpAddrAndRemoveProgressBar = function (ipAddr) {
 
     // fill info color
     $(IP_INDICATOR_CLASS).addClass('alert-info');
+
+
+    $(IP_LOAD_DONE).css('display', 'block');
 
     window.common.scan();
 };
@@ -57,6 +64,8 @@ window.index.startLoading = function () {
 
     // remove info color
     $(IP_INDICATOR_CLASS).removeClass('alert-info');
+
+    $(IP_LOAD_DONE).css('display', 'none');
 
     // fetch ip and display
     window.IpRecordFactory.createUsingDynDNS()
@@ -111,4 +120,8 @@ window.index.initEvents = function () {
     'use strict';
 
     $(IP_RELOAD_BUTTON_CLASS).click(window.index.startLoading);
+
+    $(LINK_TO_HISTORY).click(function () {
+        window.location.href = 'history.html';
+    });
 };
