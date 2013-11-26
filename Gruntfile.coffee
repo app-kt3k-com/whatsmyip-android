@@ -7,15 +7,12 @@ module.exports = (g) ->
     jshint:
       options:
         jshintrc: '.jshintrc'
-      source: ['src/main/js/**/*.js']
-      test: ['src/test/js/*.js']
+      source: 'src/main/js/**/*.js'
+      test: 'src/test/js/**/*.js'
 
     jasmine:
       app:
-        src: [
-          'src/main/js/domain/iprecord.js'
-          'src/main/js/domain/iprecordfactory.js'
-        ]
+        src: 'src/main/js/domain/*.js'
         options:
           specs: 'src/test/js/*spec.js'
           vendor: ['bower_components/jquery/jquery.min.js']
