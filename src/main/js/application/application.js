@@ -7,7 +7,7 @@ var IP_INDICATOR_CLASS = '.ip-indicator';
 
 var IP_LOAD_DONE = '.ip-load-done';
 
-var LINK_TO_HISTORY = '.link-to-history';
+var LINK_TO_HISTORY = '.link-to-records';
 
 window.common = {};
 
@@ -122,6 +122,6 @@ window.index.initEvents = function () {
     $(IP_RELOAD_BUTTON_CLASS).click(window.index.startLoading);
 
     $(LINK_TO_HISTORY).click(function () {
-        window.location.href = 'history.html';
+        window.location.href = 'records.html';
     });
 };
