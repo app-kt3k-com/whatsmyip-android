@@ -40,3 +40,6 @@ _SpecRunner.html
 
 # grunt temporary files
 .grunt
+
+# instrumented js
+src/main/js-cov
