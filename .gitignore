@@ -34,3 +34,9 @@ bower_components
 
 # vim swp file
 *.swp
+
+# jasmine spec runner
+_SpecRunner.html
+
+# grunt temporary files
+.grunt
