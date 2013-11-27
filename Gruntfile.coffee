@@ -15,7 +15,12 @@ module.exports = (g) ->
         src: 'src/main/js/domain/*.js'
         options:
           specs: 'src/test/js/*spec.js'
-          vendor: ['bower_components/jquery/jquery.min.js']
+          vendor: [
+            'bower_components/jquery/jquery.min.js'
+            'bower_components/straw-android.js/src/**/*.js'
+            'bower_components/straw-android-plugin.js/src/**/*.js'
+          ]
+          keepRunner: true
 
   g.loadNpmTasks 'grunt-contrib-jshint'
   g.loadNpmTasks 'grunt-contrib-jasmine'
