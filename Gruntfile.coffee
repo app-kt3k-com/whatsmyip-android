@@ -20,6 +20,9 @@ module.exports = (g) ->
             'bower_components/straw-android.js/src/**/*.js'
             'bower_components/straw-android-plugin.js/src/**/*.js'
           ]
+          helpers: [
+            'bower_components/sinon-1.7.3.js/index.js'
+          ]
           keepRunner: true
 
   g.loadNpmTasks 'grunt-contrib-jshint'

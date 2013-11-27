@@ -22,5 +22,8 @@
     "straw-android-plugin.js": "git://github.com/strawjs/straw-android-plugin.js.git#v0.1.0",
     "font-awesome-4.0.3.zip": "http://fontawesome.io/assets/font-awesome-4.0.3.zip",
     "i18n.js": "git://github.com/kt3k/i18n.js#v0.0.2"
+  },
+  "devDependencies": {
+    "sinon-1.7.3.js": "http://sinonjs.org/releases/sinon-1.7.3.js"
   }
 }
