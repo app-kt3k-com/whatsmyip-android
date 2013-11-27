@@ -1,4 +1,5 @@
 # middleman config file
+# see http://middlemanapp.com/
 
 set :source, 'src/main/middleman'
 
