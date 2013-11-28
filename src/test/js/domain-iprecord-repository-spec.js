@@ -40,7 +40,7 @@ describe('IpRecordRepository', function () {
 
     describe('add', function () {
 
-        it('adds item to repository', function () {
+        it('adds item to repository and drop first one if max num exceeded', function () {
 
             var repo = new IpRecordRepository();
 
@@ -70,9 +70,12 @@ describe('IpRecordRepository', function () {
                 expect(true).toBe(false);
             });
 
+            stubGetAll.restore();
+            stubSave.restore();
+
         });
 
-        it('adds item to repository and drop first one if max num exceeded', function () {
+        it('adds item to repository', function () {
 
             var repo = new IpRecordRepository();
 
@@ -90,11 +93,28 @@ describe('IpRecordRepository', function () {
                 expect(true).toBe(false);
             });
 
+            stubGetAll.restore();
+            stubSave.restore();
+
         });
     });
 
 
     describe('save', function () {
+
+        it('calls save method of straw.sharedPreferences plugin', function () {
+
+            var stubSet = sinon.stub(straw.sharedPreferences, 'set');
+            stubSet.withArgs('ip-records', ['abc']).returns('ok');
+
+            var repo = new IpRecordRepository();
+
+            var result = repo.save(['abc']);
+
+            expect(result).toBe('ok');
+
+            stubSet.restore();
+        });
     });
 
 
