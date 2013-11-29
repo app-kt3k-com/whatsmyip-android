@@ -97,6 +97,44 @@ describe('IpRecordRepository', function () {
             stubSave.restore();
 
         });
+
+        it('fails when this.getAll fails', function () {
+
+            var repo = new IpRecordRepository();
+
+            var stubGetAll = sinon.stub(repo, 'getAll');
+            stubGetAll.returns($.Deferred().reject('ok!'));
+
+            repo.add({toObject: function () {}}).done(function () {
+                expect(true).toBe(false);
+            }).fail(function (result) {
+                expect(result).toBe('ok!');
+            });
+
+            stubGetAll.restore();
+
+        });
+
+        it('fails when this.save fails', function () {
+
+            var repo = new IpRecordRepository();
+
+            var stubGetAll = sinon.stub(repo, 'getAll');
+            stubGetAll.returns($.Deferred().resolve([]));
+
+            var stubSave = sinon.stub(repo, 'save');
+            stubSave.returns($.Deferred().reject('ok!'));
+
+            repo.add({toObject: function () {}}).done(function () {
+                expect(true).toBe(false);
+            }).fail(function (result) {
+                expect(result).toBe('ok!');
+            });
+
+            stubGetAll.restore();
+            stubSave.restore();
+
+        });
     });
 
 
