@@ -29,6 +29,14 @@ describe('IpRecordFactory', function () {
             expect(ipRec.ipAddr).toBe('8.8.8.8');
             expect(typeof ipRec.createdAt).toBe('number');
             expect(ipRec.countryCode).toEqual(null);
+
+        });
+
+        it('returns null when api response text broken', function () {
+            var ipRec = IpRecordFactory.createFromDynDNSResponseText('broken!');
+
+            expect(ipRec).toEqual(null);
+
         });
 
     });
@@ -55,7 +63,11 @@ describe('IpRecordFactory', function () {
     });
 
 
-    describe('createFromSerializedString', function () {
+    describe('createFromJsonString', function () {
+
+        it('creates ip record from JSON string', function () {
+        });
+
     });
 
 });

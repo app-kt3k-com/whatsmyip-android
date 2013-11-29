@@ -21,12 +21,18 @@ window.IpRecordFactory = (function ($, straw) {
      * @return {IpRecord} IpRecord object representing current ip address
      */
     exports.createFromDynDNSResponseText = function (text) {
-        var obj = parseDynDNS(text);
+        var ipAddr = parseDynDNS(text);
+
+        if (ipAddr == null) {
+            // if ip address not found in api response text
+            return null;
+        }
 
         return new window.IpRecord({
-            ipAddr: obj.addr,
+            ipAddr: ipAddr,
             createdAt: new Date().getTime()
         });
+
     };
 
     /**
@@ -34,7 +40,7 @@ window.IpRecordFactory = (function ($, straw) {
      * @param {string} str JSON expression of IpRecord
      * @return {IpRecord} IpRecord represented by given JSON expression
      */
-    exports.createFromSerializedString = function (str) {
+    exports.createFromJsonString = function (str) {
         var args;
 
         try {
@@ -48,6 +54,10 @@ window.IpRecordFactory = (function ($, straw) {
 
     var reIpAddr = /(\d+\.\d+\.\d+\.\d+)/;
 
+    /**
+     * @param {string} text check-ip api's response text
+     * @return {string} string represents ip address; null if ip address not found
+     */
     var extractIpAddrFromText = function (text) {
         var match = reIpAddr.exec(text);
 
@@ -59,13 +69,7 @@ window.IpRecordFactory = (function ($, straw) {
     };
 
     var parseDynDNS = function (text) {
-        var doc = new DOMParser().parseFromString(text, 'text/xml');
-
-        var bodyText = $('body', doc).text();
-
-        return {
-            addr: extractIpAddrFromText(bodyText)
-        };
+        return extractIpAddrFromText(text);
     };
 
     return exports;
