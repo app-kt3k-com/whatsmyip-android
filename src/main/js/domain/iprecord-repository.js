@@ -17,26 +17,18 @@ window.IpRecordRepository = (function ($, straw) {
     };
 
     prototype.add = function (ipRecord) {
-        var d = $.Deferred();
 
         var self = this;
 
-        this.getAll().pipe(function (records) {
+        return this.getAll().pipe(function (records) {
+
             records.push(ipRecord.toObject());
 
             records = records.slice(-MAX_NUM_IP_RECORD);
 
-            return self.save(records).done(function (isSuccess) {
-                d.resolve(isSuccess);
+            return self.save(records);
 
-            });
-
-        }).fail(function (err) {
-            d.reject(err);
-
-        });
-
-        return d.promise();
+        }).promise();
     };
 
     prototype.save = function (records) {
