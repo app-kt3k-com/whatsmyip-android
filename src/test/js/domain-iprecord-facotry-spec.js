@@ -66,6 +66,21 @@ describe('IpRecordFactory', function () {
     describe('createFromJsonString', function () {
 
         it('creates ip record from JSON string', function () {
+
+            var ipRecord = IpRecordFactory.createFromJsonString('{"ipAddr":"8.8.8.8","countryCode":"JPN","createdAt":123456}');
+            expect(ipRecord instanceof IpRecord).toBe(true);
+
+            expect(ipRecord.ipAddr).toBe('8.8.8.8');
+            expect(ipRecord.createdAt).toBe(123456);
+            expect(ipRecord.countryCode).toBe('JPN');
+
+        });
+
+        it('retruns null if Json string broken', function () {
+
+            var ipRecord = IpRecordFactory.createFromJsonString('{broken!}');
+
+            expect(ipRecord).toBe(null);
         });
 
     });
