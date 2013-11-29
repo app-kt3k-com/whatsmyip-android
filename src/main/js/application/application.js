@@ -9,15 +9,46 @@ var IP_LOAD_DONE = '.ip-load-done';
 
 var LINK_TO_HISTORY = '.link-to-records';
 
-window.common = {};
-
-window.index = {};
-
-window.common.scan = function () {
+window.common = (function (window) {
     'use strict';
 
-    window.i18n.scan();
-};
+    var exports = {};
+
+    var common = exports;
+
+    common.scan = function () {
+        window.i18n.scan();
+    };
+
+    common.getLanguage = function (language) {
+
+        if (language) {
+            return $.Deferred().resolve(language).promise();
+        }
+
+        return window.straw.locale.getLanguage();
+    };
+
+    common.initI18n = function () {
+
+        var i18n = window.i18n;
+
+        i18n.setAvailableLanguages(['en', 'ja']);
+
+        return window.common.getLanguage(window.config.language).pipe(function (language) {
+
+            i18n.setLanguage(language);
+
+            return i18n.loadScript('i18n/{LANGUAGE}.js');
+
+        });
+    };
+
+    return exports;
+
+}(window));
+
+window.index = {};
 
 var displayNewIpRecord = function (ipRecord) {
     'use strict';
@@ -73,32 +104,6 @@ window.index.startLoading = function () {
         .fail(window.index.startLoading);
 
     window.common.scan();
-};
-
-window.common.initI18n = function () {
-    'use strict';
-
-    var i18n = window.i18n;
-
-    i18n.setAvailableLanguages(['en', 'ja']);
-
-    return window.common.getLanguage(window.config.language).pipe(function (language) {
-
-        i18n.setLanguage(language);
-
-        return i18n.loadScript('i18n/{LANGUAGE}.js');
-
-    });
-};
-
-window.common.getLanguage = function (language) {
-    'use strict';
-
-    if (language) {
-        return $.Deferred().resolve(language).promise();
-    }
-
-    return window.straw.locale.getLanguage();
 };
 
 window.index.main = function () {
