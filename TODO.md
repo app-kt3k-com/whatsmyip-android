@@ -2,16 +2,22 @@ TODO
 ----
 
 
-- ipRepo testing
-- link to history page
-- reload button
-- release
+- introduce otto (eventbus) to straw-core
+- backbutton plugin (or base function)
+- records list impl
+- record a record impl
 
 
 - review reminder
   - remind to review app after 10 times success use of app
     - if user doesn't review, remind again after some reasonable period
     - if user reviewed, then stop reminding
+
+- review reminder domain model
+- review reminder domain impl
+- review reminder app impl
+
+- release
 
 
 - straw-ios
@@ -47,6 +53,9 @@ LOW PRI
 
 DONE
 ----
+- ipRepo testing - done
+- link to history page - done
+- reload button - done
 - history page - done
   - records.html
 - internationalization - done! yeah!
