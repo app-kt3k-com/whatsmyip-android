@@ -48,85 +48,87 @@ window.common = (function (window) {
 
 }(window));
 
-window.index = {};
-
-var displayNewIpRecord = function (ipRecord) {
+window.index = (function (window) {
     'use strict';
 
     var i18n = window.i18n;
 
-    // toast welcome message
-    window.straw.ui.toast(i18n.t('ip.done'));
+    var exports = {};
+    var index = exports;
 
-    fillIpAddr(ipRecord.ipAddr);
-};
+    var displayNewIpRecord = function (ipRecord) {
 
-var fillIpAddr = function (ipAddr) {
-    'use strict';
+        // toast welcome message
+        window.straw.ui.toast(i18n.t('ip.done'));
 
-    // set ip label
-    $(IP_INPUT_ID).val(ipAddr);
+        fillIpAddr(ipRecord.ipAddr);
+    };
 
-    // stop spin and thumbs up
-    $(IP_LOADING_ID).removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-thumbs-o-up');
+    var fillIpAddr = function (ipAddr) {
 
-    // fill info color
-    $(IP_INDICATOR_CLASS).addClass('alert-info');
+        // set ip label
+        $(IP_INPUT_ID).val(ipAddr);
+
+        // stop spin and thumbs up
+        $(IP_LOADING_ID).removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-thumbs-o-up');
+
+        // fill info color
+        $(IP_INDICATOR_CLASS).addClass('alert-info');
 
 
-    $(IP_LOAD_DONE).css('display', 'block');
-
-    window.common.scan();
-};
-
-window.index.startLoading = function () {
-    'use strict';
-
-    var i18n = window.i18n;
-
-    // toast welcome message
-    window.straw.ui.toast(i18n.t('ip.start_loading'));
-
-    // remove ip label
-    $(IP_INPUT_ID).val('');
-
-    // spin refresh icon
-    $(IP_LOADING_ID).addClass('fa-refresh').addClass('fa-spin').removeClass('fa-thumbs-o-up');
-
-    // remove info color
-    $(IP_INDICATOR_CLASS).removeClass('alert-info');
-
-    $(IP_LOAD_DONE).css('display', 'none');
-
-    // fetch ip and display
-    window.IpRecordFactory.createUsingDynDNS()
-        .done(displayNewIpRecord)
-        .fail(window.index.startLoading);
-
-    window.common.scan();
-};
-
-window.index.main = function () {
-    'use strict';
-
-    window.common.initI18n().done(function () {
+        $(IP_LOAD_DONE).css('display', 'block');
 
         window.common.scan();
+    };
 
-        window.index.initEvents();
+    index.startLoading = function () {
 
-        window.index.startLoading();
+        var i18n = window.i18n;
 
-    });
+        // toast welcome message
+        window.straw.ui.toast(i18n.t('ip.start_loading'));
 
-};
+        // remove ip label
+        $(IP_INPUT_ID).val('');
 
-window.index.initEvents = function () {
-    'use strict';
+        // spin refresh icon
+        $(IP_LOADING_ID).addClass('fa-refresh').addClass('fa-spin').removeClass('fa-thumbs-o-up');
 
-    $(IP_RELOAD_BUTTON_CLASS).click(window.index.startLoading);
+        // remove info color
+        $(IP_INDICATOR_CLASS).removeClass('alert-info');
 
-    $(LINK_TO_HISTORY).click(function () {
-        window.location.href = 'records.html';
-    });
-};
+        $(IP_LOAD_DONE).css('display', 'none');
+
+        // fetch ip and display
+        window.IpRecordFactory.createUsingDynDNS()
+            .done(displayNewIpRecord)
+            .fail(window.index.startLoading);
+
+        window.common.scan();
+    };
+
+    index.main = function () {
+
+        window.common.initI18n().done(function () {
+
+            window.common.scan();
+
+            window.index.initEvents();
+
+            window.index.startLoading();
+
+        });
+
+    };
+
+    index.initEvents = function () {
+        $(IP_RELOAD_BUTTON_CLASS).click(window.index.startLoading);
+
+        $(LINK_TO_HISTORY).click(function () {
+            window.location.href = 'records.html';
+        });
+    };
+
+    return exports;
+
+}(window));
