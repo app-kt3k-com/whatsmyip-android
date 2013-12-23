@@ -7,24 +7,24 @@ window.page.records = (function (window) {
     var $ = window.$;
 
     var exports = {};
-    var recoeds = exports;
+    var records = exports;
 
-    recoeds.initEvents = function () {
+    records.initEvents = function () {
         $('.some-class').click(function () {});
     };
 
-    recoeds.startLoading = function () {
+    records.startLoading = function () {
     };
 
-    recoeds.main = function () {
+    records.main = function () {
 
         window.common.initI18n().done(function () {
 
             window.common.scan();
 
-            recoeds.initEvents();
+            records.initEvents();
 
-            recoeds.startLoading();
+            records.startLoading();
 
         });
 
