@@ -52,6 +52,17 @@ window.IpRecordFactory = (function ($, straw) {
         return new window.IpRecord(args);
     };
 
+
+    /**
+     * create IpRecord from object
+     * @param {object} obj object representation of IpRecord
+     * @return {IpRecord} IpRecord object
+     */
+    exports.createFromObject = function (obj) {
+        return new window.IpRecord(obj);
+    };
+
+
     var reIpAddr = /(\d+\.\d+\.\d+\.\d+)/;
 
     /**

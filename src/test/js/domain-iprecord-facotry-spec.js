@@ -85,4 +85,20 @@ describe('IpRecordFactory', function () {
 
     });
 
+
+    describe('createFromObject', function () {
+
+        it('create ip record from object', function () {
+
+            var ipRecord = IpRecordFactory.createFromObject({'ipAddr': '8.8.8.8', 'countryCode': 'JPN', 'createdAt': 123456});
+            expect(ipRecord instanceof IpRecord).toBe(true);
+
+            expect(ipRecord.ipAddr).toBe('8.8.8.8');
+            expect(ipRecord.createdAt).toBe(123456);
+            expect(ipRecord.countryCode).toBe('JPN');
+
+        });
+
+    });
+
 });
