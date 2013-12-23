@@ -26,6 +26,8 @@ public class BaseActivity extends Activity {
     private AdView adView;
     private LinearLayout layout;
 
+    private Straw straw;
+
     private Boolean adEnabled = true;
     private String url;
 
@@ -105,7 +107,8 @@ public class BaseActivity extends Activity {
         webView.setBackgroundColor(Color.WHITE);
 
         // insert Straw into webView and init basic plugins
-        Straw.insertInto(webView).addPlugins(org.kt3k.straw.plugin.BasicPlugins.names);
+        this.straw = Straw.insertInto(webView);
+        this.straw.addPlugins(org.kt3k.straw.plugin.BasicPlugins.names);
 
         // load url
         webView.loadUrl(url);
@@ -164,6 +167,11 @@ public class BaseActivity extends Activity {
         this.setUpWindow();
 
         this.setUpLayout();
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.straw.onBackPressed();
     }
 
     class CustomWebViewClient extends WebViewClient {

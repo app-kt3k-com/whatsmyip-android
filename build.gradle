@@ -31,11 +31,11 @@ tasks.withType(Compile) {
 dependencies {
     compile files('libs/GoogleAdMobAdsSdk-6.4.1.jar')
 
-    compile 'org.kt3k.straw:straw-android:0.4.0', {
+    compile 'org.kt3k.straw:straw-android:0.6.2', {
         exclude group: 'com.google.android'
     }
 
-    compile 'org.kt3k.straw:straw-android-plugin:0.4.0', {
+    compile 'org.kt3k.straw:straw-android-plugin:0.6.4', {
         exclude group: 'com.google.android'
     }
 }
