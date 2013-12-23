@@ -13,8 +13,18 @@ window.page.records = (function (window) {
         $('.some-class').click(function () {});
     };
 
-    records.startLoading = function () {
+
+    records.init = function () {
+
+        // init repository
+        var repository = new window.IpRecordRepository();
+
+        repository.getAll().done(function (ipRecords) {
+            $('.debug').text(JSON.stringify(ipRecords));
+        });
+
     };
+
 
     records.main = function () {
 
@@ -24,7 +34,7 @@ window.page.records = (function (window) {
 
             records.initEvents();
 
-            records.startLoading();
+            records.init();
 
         });
 

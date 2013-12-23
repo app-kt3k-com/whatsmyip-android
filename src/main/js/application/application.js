@@ -56,10 +56,19 @@ window.index = (function (window) {
     var exports = {};
     var index = exports;
 
-    var displayNewIpRecord = function (ipRecord) {
+    var gotNewIpRecord = function (ipRecord) {
 
         // toast welcome message
         window.straw.ui.toast(i18n.t('ip.done'));
+
+        // new repository
+        var repository = new window.IpRecordRepository();
+
+        // record latest
+        repository.setLatest(ipRecord);
+
+        // add to list
+        repository.add(ipRecord);
 
         fillIpAddr(ipRecord.ipAddr);
     };
@@ -101,7 +110,7 @@ window.index = (function (window) {
 
         // fetch ip and display
         window.IpRecordFactory.createUsingDynDNS()
-            .done(displayNewIpRecord)
+            .done(gotNewIpRecord)
             .fail(window.index.startLoading);
 
         window.common.scan();
