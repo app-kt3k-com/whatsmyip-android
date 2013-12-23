@@ -29,4 +29,4 @@ device-launch-app:
 	adb shell am start -n com.kt3k.app.whatsmyip/com.kt3k.app.whatsmyip.BaseActivity
 
 device-logcat:
-	adb logcat
+	adb logcat *:E
