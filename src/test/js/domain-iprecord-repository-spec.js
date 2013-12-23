@@ -26,12 +26,19 @@ describe('IpRecordRepository', function () {
 
             var stub = sinon.stub(straw.sharedPreferences, 'get');
 
-            stub.withArgs('ip-records', []).returns('ok');
+            stub.withArgs('ip-records', []).returns($.Deferred(function (d) {
+                d.resolve([{ipAddr: '8.8.8.8', countryCode: 'JPN', createdAt: 1300000000}]);
+            }));
 
             var repo = new IpRecordRepository();
-            var result = repo.getAll();
+            repo.getAll().done(function (ipRecords) {
+                expect(ipRecords.length).toBe(1);
 
-            expect(result).toBe('ok');
+                var ipRecord = ipRecords[0];
+                expect(ipRecord.ipAddr).toBe('8.8.8.8');
+                expect(ipRecord.countryCode).toBe('JPN');
+                expect(ipRecord.createdAt).toBe(1300000000);
+            });
 
             stub.restore();
         });

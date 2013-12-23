@@ -6,15 +6,22 @@ window.IpRecordRepository = (function ($, straw) {
     var MAX_NUM_IP_RECORD = 256;
 
     var IP_RECORD_KEY = 'ip-records';
+    var IP_LATEST_KEY = 'ip-latest';
 
     var exports = function () {
     };
 
     var prototype = exports.prototype;
 
+
     prototype.getAll = function () {
-        return straw.sharedPreferences.get(IP_RECORD_KEY, []);
+        return straw.sharedPreferences.get(IP_RECORD_KEY, []).pipe(function (records) {
+            return records.map(function (obj) {
+                return window.IpRecordFactory.createFromObject(obj);
+            });
+        });
     };
+
 
     prototype.add = function (ipRecord) {
 
@@ -31,10 +38,24 @@ window.IpRecordRepository = (function ($, straw) {
         }).promise();
     };
 
+
     prototype.save = function (records) {
         return straw.sharedPreferences.set(IP_RECORD_KEY, records);
 
     };
+
+
+    prototype.getLatest = function () {
+        return straw.sharedPreferences.get(IP_LATEST_KEY, []).pipe(function (obj) {
+            return new window.IpRecordFactory.createFromObject(obj);
+        });
+    };
+
+
+    prototype.setLatest = function (ipRecord) {
+        return straw.sharedPreferences.set(IP_LATEST_KEY, ipRecord.toObject());
+    };
+
 
     return exports;
 
