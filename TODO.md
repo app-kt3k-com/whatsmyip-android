@@ -1,12 +1,8 @@
 TODO
 ----
 
-
-- introduce otto (eventbus) to straw-core
-- backbutton plugin (or base function)
 - records list impl
 - record a record impl
-
 
 - review reminder
   - remind to review app after 10 times success use of app
@@ -42,6 +38,8 @@ Financial
 
 LOW PRI
 -------
+- backbutton plugin (or base function) - done
+- introduce otto (eventbus) to straw-core - done
 - straw debug plugin
   - dump available plugins
   - show straw version etc
