@@ -20,7 +20,23 @@ window.page.records = (function (window) {
         var repository = new window.IpRecordRepository();
 
         repository.getAll().done(function (ipRecords) {
-            $('.debug').text(JSON.stringify(ipRecords));
+            //$('.debug').text(JSON.stringify(ipRecords));
+
+            var table = $('<table class="table" />');
+
+            table.append($('<tr><th>ip address</th><th>date</th></tr>'));
+
+            for (var i = 0; i < ipRecords.length; i++) {
+                var record = ipRecords[i];
+
+                var date = new Date(record.createdAt);
+
+                var format = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+                table.append($('<tr><td>' + record.ipAddr + '</td><td>' + format + '</td></tr>'));
+            }
+
+            $('.debug').append(table);
         });
 
     };
