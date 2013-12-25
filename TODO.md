@@ -1,19 +1,36 @@
 TODO
 ----
 
-- records list impl
-- record a record impl
+
+- latest record handling
+  - don't auto-update if the latest record is too latest (probably 15 min?)
+  - don't record the same ip address twice a day
 
 - review reminder
-  - remind to review app after 10 times success use of app
+  - remind to review app after 7 times success use of app
     - if user doesn't review, remind again after some reasonable period
     - if user reviewed, then stop reminding
 
 - review reminder domain model
+  - UserActivity model
+    - number SuccessCount
+    - boolean IsReviewed
+  - UserActivityRepository
+  - UserActivityFactory
 - review reminder domain impl
 - review reminder app impl
 
+- toast sorry message every 7 seconds while ip address is not available
+- and more moderate & reasonable retry policy and suspend policy for ip address retrieving
+  - limit number of retry count (about 10?)
+  - limit user waiting time (about 20 seconds?)
+
+- heroku ip address reflector
+  - plus some usage analytics
+
 - release
+
+- app description
 
 
 - straw-ios
@@ -26,31 +43,23 @@ TODO
 - straw-ios-plugin.js
 
 
-
-
 Financial
 ---------
 - get new admob code for this app
-- paypal upgrade
-  - take certificate picture
-  - get resident registry card
-
-
-LOW PRI
--------
-- backbutton plugin (or base function) - done
-- introduce otto (eventbus) to straw-core - done
-- straw debug plugin
-  - dump available plugins
-  - show straw version etc
-- back button plugin
-- app description
-
-- straw-android switch to gradle
 
 
 DONE
 ----
+- paypal upgrade - pending
+  - take certificate picture
+  - get resident registry card
+- straw debug plugin - pending
+  - dump available plugins
+  - show straw version etc
+- backbutton plugin (or base function) - done
+- straw-android switch to gradle - done
+- records list impl - done
+- record a record impl - done
 - ipRepo testing - done
 - link to history page - done
 - reload button - done
