@@ -24,7 +24,7 @@ window.page.records = (function (window) {
 
             var table = $('<table class="table" />');
 
-            table.append($('<tr><th>ip address</th><th>date</th></tr>'));
+            table.append($('<tr><th><i class="fa fa-globe"></i> IP Address</th><th><i class="fa fa-calendar-o"></i> Date</th></tr>'));
 
             for (var i = 0; i < ipRecords.length; i++) {
                 var record = ipRecords[i];

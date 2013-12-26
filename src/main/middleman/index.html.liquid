@@ -4,13 +4,15 @@ title: Welcome to Middleman
 
 <div class="container">
 
+  <h1>Current IP Address</h1>
+
   {% include 'loading' %}
 
   <div class="ip-load-done" style="margin-top: 30px; display: none;">
 
-    <button type="button" class="btn btn-info link-to-records"><t>page.history</t></button>
+    <button type="button" class="btn btn-info link-to-records"><i class="fa fa-calendar"></i> <t>page.history</t></button>
 
-    <button type="button" class="btn btn-default ip-reload-button"><t>common.reload</t></button>
+    <button type="button" class="btn btn-default ip-reload-button"><i class="fa fa-refresh"></i> <t>common.reload</t></button>
 
   </div>
 
