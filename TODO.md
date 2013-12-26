@@ -3,7 +3,6 @@ TODO
 
 
 - latest record handling
-  - don't auto-update if the latest record is too latest (probably 15 min?)
   - don't record the same ip address twice a day
 
 - review reminder
@@ -50,6 +49,7 @@ Financial
 
 DONE
 ----
+- don't auto-update if the latest record is too latest (probably 15 min?) - done
 - paypal upgrade - pending
   - take certificate picture
   - get resident registry card
