@@ -14,6 +14,10 @@ window.IpRecordRepository = (function ($, straw) {
     var prototype = exports.prototype;
 
 
+    /**
+     * get all ip address record list
+     * @return promise to resolve with IpRecord[] list of ip address records
+     */
     prototype.getAll = function () {
         return straw.sharedPreferences.get(IP_RECORD_KEY, []).pipe(function (records) {
             return records.map(function (obj) {
@@ -23,15 +27,20 @@ window.IpRecordRepository = (function ($, straw) {
     };
 
 
+    /**
+     * add new ip record
+     * @param IpRecord ipRecord ip address record to store in repository
+     * @return promise to resolve with success flag boolean
+     */
     prototype.add = function (ipRecord) {
 
         var self = this;
 
         return this.getAll().pipe(function (records) {
 
-            records.push(ipRecord.toObject());
+            records.unshift(ipRecord.toObject());
 
-            records = records.slice(-MAX_NUM_IP_RECORD);
+            records = records.slice(0, MAX_NUM_IP_RECORD);
 
             return self.save(records);
 
@@ -39,6 +48,11 @@ window.IpRecordRepository = (function ($, straw) {
     };
 
 
+    /**
+     * store object as ip address record list
+     * @param Object records ip address record list to store
+     * @return promise to resolve with success flag boolean
+     */
     prototype.save = function (records) {
         return straw.sharedPreferences.set(IP_RECORD_KEY, records);
 

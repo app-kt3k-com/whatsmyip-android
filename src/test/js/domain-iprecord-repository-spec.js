@@ -47,7 +47,7 @@ describe('IpRecordRepository', function () {
 
     describe('add', function () {
 
-        it('adds item to repository and drop first one if max num exceeded', function () {
+        it('adds item to repository and drop last one if max num exceeded', function () {
 
             var repo = new IpRecordRepository();
 
@@ -63,8 +63,8 @@ describe('IpRecordRepository', function () {
             var stubGetAll = sinon.stub(repo, 'getAll');
             stubGetAll.returns($.Deferred().resolve(array0));
 
-            array1.shift(); // first element is dropped
-            array1.push('bcd'); // new item pushed
+            array1.pop(); // first element is dropped
+            array1.unshift('bcd'); // new item pushed
 
             var stubSave = sinon.stub(repo, 'save');
             stubSave.withArgs(array1).returns($.Deferred().resolve(true));
@@ -90,7 +90,7 @@ describe('IpRecordRepository', function () {
             stubGetAll.returns($.Deferred().resolve(['abc', 'def']));
 
             var stubSave = sinon.stub(repo, 'save');
-            stubSave.withArgs(['abc', 'def', 'ghi']).returns($.Deferred().resolve(true));
+            stubSave.withArgs(['ghi', 'abc', 'def']).returns($.Deferred().resolve(true));
 
             repo.add({toObject: function () {
                 return 'ghi';
