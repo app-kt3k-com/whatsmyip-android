@@ -29,6 +29,12 @@ window.IpRecord = (function () {
         };
     };
 
+    var FIFTEEN_MINUTES = 15 * 60 * 1000;
+
+    pt.isFresh = function () {
+        return this.createdAt != null && new Date().getTime() - this.createdAt < FIFTEEN_MINUTES;
+    };
+
 
     return exports;
 

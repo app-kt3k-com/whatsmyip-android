@@ -56,7 +56,7 @@ window.index = (function (window) {
     var exports = {};
     var index = exports;
 
-    var gotNewIpRecord = function (ipRecord) {
+    var gotIpRecord = function (ipRecord) {
 
         // toast welcome message
         window.straw.ui.toast(i18n.t('ip.done'));
@@ -110,7 +110,7 @@ window.index = (function (window) {
 
         // fetch ip and display
         window.IpRecordFactory.createUsingDynDNS()
-            .done(gotNewIpRecord)
+            .done(gotIpRecord)
             .fail(window.index.startLoading);
 
         window.common.scan();
@@ -122,9 +122,23 @@ window.index = (function (window) {
 
             window.common.scan();
 
-            window.index.initEvents();
+            index.initEvents();
 
-            window.index.startLoading();
+            var repository = new window.IpRecordRepository();
+
+            repository.getLatest().done(function (ipRecord) {
+
+                if (ipRecord != null && ipRecord.isFresh()) {
+
+                    gotIpRecord(ipRecord);
+
+                } else {
+
+                    index.startLoading();
+
+                }
+
+            });
 
         });
 
