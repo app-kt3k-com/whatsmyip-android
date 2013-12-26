@@ -17,8 +17,10 @@ t, .t-text, .t-attr {
 }
 
 
-footer {
+#footer {
     margin-top: 50px;
     border-top: solid 1px #bbb;
     padding-top: 30px;
+    color: #777;
+    text-align: center;
 }
