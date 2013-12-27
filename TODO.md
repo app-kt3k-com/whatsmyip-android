@@ -1,10 +1,6 @@
 TODO
 ----
 
-
-- latest record handling
-  - don't record the same ip address consequtively in the same day
-
 - review reminder
   - remind to review app after 7 times success use of app
     - if user doesn't review, remind again after some reasonable period
@@ -49,6 +45,7 @@ Financial
 
 DONE
 ----
+- don't record the same ip address consecutively in the same day - done
 - don't auto-update if the latest record is too latest (probably 15 min?) - done
 - paypal upgrade - pending
   - take certificate picture
