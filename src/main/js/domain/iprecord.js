@@ -36,6 +36,22 @@ window.IpRecord = (function () {
     };
 
 
+    /**
+     * return true iff the record's timestamp is the same day as the given date (in locale timezone)
+     * @param Date d date to compare
+     * @return true if the record's timestamp is the same day as the given date (in locale timezone) and false otherwise
+     */
+    pt.isSameDay = function (d) {
+        return getDateLabel(d) === getDateLabel(new Date(this.createdAt));
+
+    };
+
+
+    var getDateLabel = function (d) {
+        return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+    };
+
+
     return exports;
 
 }());

@@ -65,4 +65,32 @@ describe('IpRecord', function () {
 
     });
 
+
+    describe('isSameDay', function () {
+
+        it('returns true if the given date is same day', function () {
+
+            var ipRec = new IpRecord({
+                ipAddr: '8.8.8.8',
+                createdAt: 1300000000000,
+                countryCode: 'JPN'
+            });
+
+            expect(ipRec.isSameDay(new Date(1300000000000))).toBe(true);
+        });
+
+        it('returns false if the given date is not the same day', function () {
+
+            var ipRec = new IpRecord({
+                ipAddr: '8.8.8.8',
+                createdAt: 13000000000000,
+                countryCode: 'JPN'
+            });
+
+            expect(ipRec.isSameDay(new Date(1300000000000 + 24 * 3600 * 1000))).toBe(false);
+            expect(ipRec.isSameDay(new Date(1300000000000 - 24 * 3600 * 1000))).toBe(false);
+        });
+
+    });
+
 });
