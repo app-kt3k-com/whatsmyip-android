@@ -2,14 +2,14 @@ TODO
 ----
 
 - review reminder
-  - remind to review app after 7 times success use of app
-    - if user doesn't review, remind again after some reasonable period
+  - remind to review app after 4 times successful use of app
+    - if user doesn't review, remind again after every 4 times successful use of app
     - if user reviewed, then stop reminding
 
 - review reminder domain model
   - UserActivity model
-    - number SuccessCount
-    - boolean IsReviewed
+    - number SuccessfulCount
+    - boolean HasReviewed
   - UserActivityRepository
   - UserActivityFactory
 - review reminder domain impl
