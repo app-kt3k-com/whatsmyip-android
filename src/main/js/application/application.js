@@ -65,10 +65,19 @@ window.index = (function (window) {
         var repository = new window.IpRecordRepository();
 
         // record latest
-        repository.setLatest(ipRecord);
+        repository.getLatest().done(function (lastRecord) {
 
-        // add to list
-        repository.add(ipRecord);
+            repository.setLatest(ipRecord);
+
+            if (ipRecord.ipAddr === lastRecord.ipAddr && ipRecord.isSameDay(new Date(lastRecord.createdAt))) {
+                // if gotten record is same as the latest and recorded date is same
+                // then skip history recoding
+                return;
+            }
+
+            // add to list
+            repository.add(ipRecord);
+        });
 
         gotIpRecord(ipRecord);
     };
