@@ -3,7 +3,7 @@ TODO
 
 
 - latest record handling
-  - don't record the same ip address consequtively
+  - don't record the same ip address consequtively in the same day
 
 - review reminder
   - remind to review app after 7 times success use of app
