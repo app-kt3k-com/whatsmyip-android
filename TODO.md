@@ -1,36 +1,31 @@
 TODO
 ----
 
-
-- switch to heroku ip reflector
-- show country icon on current ip page and history page
-
 - review reminder
-  - remind to review app after 4 times successful use of app
+  - remind to review app after 4 times successful use (ip address successfully fetched action) of app
     - if user doesn't review, remind again after every 4 times successful use of app
     - if user reviewed, then stop reminding
 
 - review reminder domain model
   - UserActivity model
-    - number SuccessfulCount
+    - number gotIpCount
     - boolean HasReviewed
   - UserActivityRepository
   - UserActivityFactory
 - review reminder domain impl
 - review reminder app impl
 
-- toast sorry message every 7 seconds while ip address is not available
-- and more moderate & reasonable retry policy and suspend policy for ip address retrieving
+- retry policy and suspend policy for ip address retrieving
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
 
-
-- release
-
-- some usage analytics
-
 - app description
 
+
+- release!
+
+
+- some usage analytics
 
 - straw-ios
   - study cocoapods
@@ -49,6 +44,8 @@ Financial
 
 DONE
 ----
+- switch to heroku ip reflector - done
+- show country icon on current ip page and history page - done
 - heroku ip address reflector - done
 - add flag sprite - done
 - don't record the same ip address consecutively in the same day - done
