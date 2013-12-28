@@ -11,7 +11,7 @@ window.IpRecordFactory = (function ($, straw) {
      */
     exports.createUsingDynDNS = function () {
         return straw.http.get('http://checkip.dyndns.com/').pipe(function (obj) {
-            return new exports.createFromDynDNSResponseText(obj.content);
+            return exports.createFromDynDNSResponseText(obj.content);
         });
     };
 
@@ -34,6 +34,32 @@ window.IpRecordFactory = (function ($, straw) {
         });
 
     };
+
+
+    /**
+     *
+     */
+    exports.createFromGeoipReflector = function () {
+        return straw.http.get('http://geoip-reflector.herokuapp.com/').pipe(function (obj) {
+            return exports.createFromGeoipReflectorResponseText(obj.content);
+        });
+    };
+
+
+    /**
+     * create from geoip-reflector's response text
+     * @param json json string of geoip-reflector
+     */
+    exports.createFromGeoipReflectorResponseText = function (json) {
+        var data = JSON.parse(json);
+
+        return new window.IpRecord({
+            ipAddr: data.ipAddr,
+            countryCode: data.countryCode,
+            createdAt: new Date().getTime()
+        });
+    };
+
 
     /**
      * create IpRecord object from serialized JSON expression

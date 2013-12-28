@@ -5,6 +5,9 @@ var IP_INPUT_ID = '#ip-input';
 var IP_RELOAD_BUTTON_CLASS = '.ip-reload-button';
 var IP_INDICATOR_CLASS = '.ip-indicator';
 
+var COUNTRY_ICON_CLASS = '.country-icon';
+var COUNTRY_ICON_DEFAULT = 'flag country-icon';
+
 var IP_LOAD_DONE = '.ip-load-done';
 
 var LINK_TO_HISTORY = '.link-to-records';
@@ -85,6 +88,16 @@ window.index = (function (window) {
     var gotIpRecord = function (ipRecord) {
 
         fillIpAddr(ipRecord.ipAddr);
+        fillCountryCode(ipRecord.countryCode);
+    };
+
+    var fillCountryCode = function (countryCode) {
+
+        if (countryCode == null) {
+            return;
+        }
+
+        $(COUNTRY_ICON_CLASS).addClass('flag-' + countryCode.toLowerCase());
     };
 
     var fillIpAddr = function (ipAddr) {
@@ -122,8 +135,11 @@ window.index = (function (window) {
 
         $(IP_LOAD_DONE).css('display', 'none');
 
+        // reset country icon
+        $(COUNTRY_ICON_CLASS).attr('class', COUNTRY_ICON_DEFAULT);
+
         // fetch ip and display
-        window.IpRecordFactory.createUsingDynDNS()
+        window.IpRecordFactory.createFromGeoipReflector()
             .done(gotNewIpRecord)
             .fail(window.index.startLoading);
 
