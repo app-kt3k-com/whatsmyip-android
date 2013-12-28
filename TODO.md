@@ -1,6 +1,10 @@
 TODO
 ----
 
+
+- switch to heroku ip reflector
+- show country icon on current ip page and history page
+
 - review reminder
   - remind to review app after 4 times successful use of app
     - if user doesn't review, remind again after every 4 times successful use of app
@@ -20,7 +24,6 @@ TODO
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
 
-- switch to heroku ip reflector
 
 - release
 
