@@ -24,7 +24,7 @@ window.page.records = (function (window) {
 
             var table = $('<table class="table" />');
 
-            table.append($('<tr><th><i class="fa fa-globe"></i> IP Address</th><th><i class="fa fa-calendar-o"></i> Date</th></tr>'));
+            table.append($('<tr><th><i class="fa fa-info-circle"></i> IP Address</th><th><i class="fa fa-calendar-o"></i> Date</th><th><i class="fa fa-globe"></i></th></tr>'));
 
             for (var i = 0; i < ipRecords.length; i++) {
                 var record = ipRecords[i];
@@ -33,7 +33,9 @@ window.page.records = (function (window) {
 
                 var format = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 
-                table.append($('<tr><td>' + record.ipAddr + '</td><td>' + format + '</td></tr>'));
+                var countryFlagClass = record.countryCode != null ? record.countryCode.toLowerCase() : 'null';
+
+                table.append($('<tr><td>' + record.ipAddr + '</td><td>' + format + '</td><td><img class="flag flag-' + countryFlagClass + '" /></td></tr>'));
             }
 
             $('.debug').append(table);
