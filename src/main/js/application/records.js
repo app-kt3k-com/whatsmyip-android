@@ -7,14 +7,18 @@ window.page.records = (function (window) {
     var $ = window.$;
 
     var exports = {};
-    var records = exports;
 
-    records.initEvents = function () {
+    exports.initEvents = function () {
         $('.some-class').click(function () {});
     };
 
 
-    records.init = function () {
+    exports.dateFormat = function (date) {
+        return date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+    };
+
+
+    exports.init = function () {
 
         // init repository
         var repository = new window.IpRecordRepository();
@@ -31,7 +35,7 @@ window.page.records = (function (window) {
 
                 var date = new Date(record.createdAt);
 
-                var format = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+                var format = exports.dateFormat(date);
 
                 var countryFlagClass = record.countryCode != null ? record.countryCode.toLowerCase() : 'null';
 
@@ -44,15 +48,15 @@ window.page.records = (function (window) {
     };
 
 
-    records.main = function () {
+    exports.main = function () {
 
         window.common.initI18n().done(function () {
 
             window.common.scan();
 
-            records.initEvents();
+            exports.initEvents();
 
-            records.init();
+            exports.init();
 
         });
 
