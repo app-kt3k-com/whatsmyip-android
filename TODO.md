@@ -20,10 +20,11 @@ TODO
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
 
-- heroku ip address reflector
-  - plus some usage analytics
+- switch to heroku ip reflector
 
 - release
+
+- some usage analytics
 
 - app description
 
@@ -45,6 +46,8 @@ Financial
 
 DONE
 ----
+- heroku ip address reflector - done
+- add flag sprite - done
 - don't record the same ip address consecutively in the same day - done
 - don't auto-update if the latest record is too latest (probably 15 min?) - done
 - paypal upgrade - pending
