@@ -42,4 +42,17 @@ describe('UserActivity', function () {
         });
 
     });
+
+    describe('incrementGotIpCount', function () {
+
+        it('increments gotIpCount', function () {
+
+            var instance = new window.UserActivity(3, true);
+
+            instance.incrementGotIpCount();
+
+            expect(instance.toJson()).toBe('{"gotIpCount":4,"hasReviewed":true}');
+
+        });
+    });
 });

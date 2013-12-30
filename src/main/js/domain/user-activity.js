@@ -20,6 +20,14 @@ window.UserActivity = (function () {
 
 
     /**
+     * increment got ip count
+     */
+    pt.incrementGotIpCount = function () {
+        this.gotIpCount ++;
+    };
+
+
+    /**
      * returns object representation of the instance
      * @return object object representation of the instance
      */

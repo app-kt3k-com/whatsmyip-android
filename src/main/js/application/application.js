@@ -59,10 +59,25 @@ window.index = (function (window) {
     var exports = {};
     var index = exports;
 
+    var handleUserActivity = function () {
+
+        var repository = new window.UserActivityRepository();
+
+        repository.retrieve().done(function (userActivity) {
+
+            userActivity.incrementGotIpCount();
+
+            repository.store(userActivity);
+
+        });
+    };
+
     var gotNewIpRecord = function (ipRecord) {
 
         // toast welcome message
         window.straw.ui.toast(i18n.t('ip.done'));
+
+        handleUserActivity();
 
         // new repository
         var repository = new window.IpRecordRepository();
