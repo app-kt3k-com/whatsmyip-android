@@ -1,25 +1,18 @@
 TODO
 ----
 
+- review reminder app impl
 - review reminder
   - remind to review app after 4 times successful use (ip address successfully fetched action) of app
     - if user doesn't review, remind again after every 4 times successful use of app
     - if user reviewed, then stop reminding
 
-- review reminder domain model
-  - UserActivity model
-    - number gotIpCount
-    - boolean HasReviewed
-  - UserActivityRepository
-  - UserActivityFactory
-- review reminder domain impl
-- review reminder app impl
-
-- retry policy and suspend policy for ip address retrieving
+- retry policy and give-up policy for ip address retrieving
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
 
 - app description
+  - Find your device's ip address and record it.
 
 
 - release!
@@ -44,6 +37,12 @@ Financial
 
 DONE
 ----
+- review reminder domain model - done
+  - UserActivity model - done
+    - number gotIpCount
+    - boolean HasReviewed
+  - UserActivityRepository - done
+- review reminder domain impl - done
 - switch to heroku ip reflector - done
 - show country icon on current ip page and history page - done
 - heroku ip address reflector - done
