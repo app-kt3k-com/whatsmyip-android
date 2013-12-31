@@ -1,21 +1,21 @@
 TODO
 ----
 
-- review reminder app impl
-- review reminder
-  - remind to review app after 4 times successful use (ip address successfully fetched action) of app
-    - if user doesn't review, remind again after every 4 times successful use of app
-    - if user reviewed, then stop reminding
-
-- review reminding service
-  - static boolean shouldRemindReview(UserActivity)
-
+- Uri plugin (to open market:// uri directly)
 - retry policy and give-up policy for ip address retrieving
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
 
+- internationalize loading indicator
+- don't show loading indicator if page transition is fast
+
 - app description
-  - Find your device's ip address and record it.
+  - description
+    - Find your device's ip address and record it.
+  - take screenshots
+    - current ip address
+    - history page
+    - other materials
 
 
 - release!
@@ -40,6 +40,12 @@ Financial
 
 DONE
 ----
+- review reminding specification - done
+  - static boolean shouldRemindReview(UserActivity)
+- review reminder - done
+  - remind to review app after 4 times successful use (ip address successfully fetched action) of app
+    - if user doesn't review, remind again after every 4 times successful use of app
+    - if user reviewed, then stop reminding
 - review reminder domain model - done
   - UserActivity model - done
     - number gotIpCount
