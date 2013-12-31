@@ -59,6 +59,26 @@ window.index = (function (window) {
     var exports = {};
     var index = exports;
 
+    var askReview = function (userActivity) {
+
+        setTimeout(function () {
+
+            if (window.confirm(window.i18n.t('common.thanks_using_and_ask_review'))) {
+
+                userActivity.hasReviewed = true;
+
+                var repository = new window.UserActivityRepository();
+
+                repository.store(userActivity);
+
+                window.straw.browser.open('https://play.google.com/store/apps/details?id=com.kt3k.app.whatsmyip');
+
+            }
+
+        });
+
+    };
+
     var handleUserActivity = function () {
 
         var repository = new window.UserActivityRepository();
@@ -68,6 +88,12 @@ window.index = (function (window) {
             userActivity.incrementGotIpCount();
 
             repository.store(userActivity);
+
+            if (window.ReviewRemindingSpecification.shouldRemindReview(userActivity)) {
+
+                askReview(userActivity);
+
+            }
 
         });
     };
