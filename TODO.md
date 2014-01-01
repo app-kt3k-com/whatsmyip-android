@@ -17,6 +17,8 @@ TODO
     - history page
     - other materials
 
+- build signed apk
+
 
 - release!
 
