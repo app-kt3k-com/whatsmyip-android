@@ -1,0 +1,2 @@
+powered by github, travis-ci, coveralls.io
+country flag icons by famfamfam
