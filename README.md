@@ -1,5 +1,6 @@
-My ![My IP](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/src/main/res/drawable-mdpi/ip.png) Address Finder [![Build Status](https://travis-ci.org/app-kt3k-com/whatsmyip-android.png?branch=master)](https://travis-ci.org/app-kt3k-com/whatsmyip-android) [![Coverage Status](https://coveralls.io/repos/app-kt3k-com/whatsmyip-android/badge.png?branch=master)](https://coveralls.io/r/app-kt3k-com/whatsmyip-android?branch=master)
------
+# My ![My IP](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/src/main/res/drawable-mdpi/ip.png) Address Finder v0.1.0
+
+[![Build Status](https://travis-ci.org/app-kt3k-com/whatsmyip-android.png?branch=master)](https://travis-ci.org/app-kt3k-com/whatsmyip-android) [![Coverage Status](https://coveralls.io/repos/app-kt3k-com/whatsmyip-android/badge.png?branch=master)](https://coveralls.io/r/app-kt3k-com/whatsmyip-android?branch=master)
 
 > Current IP address viewer and recorder app for Android
 
