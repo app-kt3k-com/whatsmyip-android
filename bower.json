@@ -19,7 +19,7 @@
     "jquery": "~2.0.3",
     "bootstrap": "~3.0.2",
     "straw-android.js": "git://github.com/strawjs/straw-android.js.git#v0.2.0",
-    "straw-android-plugin.js": "git://github.com/strawjs/straw-android-plugin.js.git#v0.1.0",
+    "straw-android-plugin.js": "git://github.com/strawjs/straw-android-plugin.js.git#v0.2.0",
     "font-awesome-4.0.3.zip": "http://fontawesome.io/assets/font-awesome-4.0.3.zip",
     "i18n.js": "git://github.com/kt3k/i18n.js#v0.0.2",
     "underscore": "~1.5.2",
