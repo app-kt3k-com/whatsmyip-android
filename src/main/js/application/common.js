@@ -2,6 +2,8 @@
 window.common = (function (window, $) {
     'use strict';
 
+    var APP_ID = 'com.kt3k.app.whatsmyip';
+
     var exports = {};
 
     var common = exports;
@@ -31,6 +33,17 @@ window.common = (function (window, $) {
 
             return i18n.loadScript('i18n/{LANGUAGE}.js');
 
+        });
+    };
+
+    exports.openMarketLink = function (id) {
+
+        if (id == null) {
+            id = APP_ID;
+        }
+
+        window.straw.uri.open('market://details?id=' + id).fail(function () {
+            window.straw.browser.open('https://play.google.com/store/apps/id=' + id);
         });
     };
 

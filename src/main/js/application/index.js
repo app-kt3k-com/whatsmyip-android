@@ -34,7 +34,7 @@ window.page.index = (function (window, $) {
 
                 repository.store(userActivity);
 
-                window.straw.browser.open('https://play.google.com/store/apps/details?id=com.kt3k.app.whatsmyip');
+                window.common.openMarketLink();
 
             }
 
