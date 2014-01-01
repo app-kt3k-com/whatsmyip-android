@@ -1,7 +1,7 @@
 TODO
 ----
 
-- Uri plugin (to open market:// uri directly)
+- implement open market function
 - retry policy and give-up policy for ip address retrieving
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
@@ -11,7 +11,11 @@ TODO
 
 - app description
   - description
-    - Find your device's ip address and record it.
+    - This app finds your device's IP address and also records the recent histories.
+    - 電話/タブレットの IP アドレスを表示します。最近の IP アドレスの履歴を保存します。
+    - credits
+      - powered by github, travis-ci, coveralls.io
+      - country flag icons by famfamfam
   - take screenshots
     - current ip address
     - history page
@@ -42,6 +46,7 @@ Financial
 
 DONE
 ----
+- Uri plugin (to open market:// uri directly) - done
 - review reminding specification - done
   - static boolean shouldRemindReview(UserActivity)
 - review reminder - done
