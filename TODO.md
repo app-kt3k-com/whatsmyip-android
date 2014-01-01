@@ -1,7 +1,8 @@
-TODO
-----
+# TODO
 
-- implement open market function
+- implement bootstrap modal instead of window.confirm function
+  - window.confirm is unusable
+
 - retry policy and give-up policy for ip address retrieving
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
@@ -10,12 +11,6 @@ TODO
 - don't show loading indicator if page transition is fast
 
 - app description
-  - description
-    - This app finds your device's IP address and also records the recent histories.
-    - 電話/タブレットの IP アドレスを表示します。最近の IP アドレスの履歴を保存します。
-    - credits
-      - powered by github, travis-ci, coveralls.io
-      - country flag icons by famfamfam
   - take screenshots
     - current ip address
     - history page
@@ -23,8 +18,12 @@ TODO
 
 - build signed apk
 
+- get new admob code for this app
+- implement new admob code
 
 - release!
+
+- whois tooltip on history page
 
 
 - some usage analytics
@@ -39,13 +38,11 @@ TODO
 - straw-ios-plugin.js
 
 
-Financial
----------
-- get new admob code for this app
 
 
 DONE
 ----
+- implement open market function - done
 - Uri plugin (to open market:// uri directly) - done
 - review reminding specification - done
   - static boolean shouldRemindReview(UserActivity)
