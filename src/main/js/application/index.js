@@ -1,58 +1,21 @@
-var $ = window.$;
 
-var IP_LOADING_ID = '#ip-loading';
-var IP_INPUT_ID = '#ip-input';
-var IP_RELOAD_BUTTON_CLASS = '.ip-reload-button';
-var IP_INDICATOR_CLASS = '.ip-indicator';
 
-var COUNTRY_ICON_CLASS = '.country-icon';
-var COUNTRY_ICON_DEFAULT = 'flag country-icon';
+window.page = window.page || {};
 
-var IP_LOAD_DONE = '.ip-load-done';
-
-var LINK_TO_HISTORY = '.link-to-records';
-
-window.common = (function (window) {
+window.page.index = (function (window, $) {
     'use strict';
 
-    var exports = {};
+    var IP_LOADING_ID = '#ip-loading';
+    var IP_INPUT_ID = '#ip-input';
+    var IP_RELOAD_BUTTON_CLASS = '.ip-reload-button';
+    var IP_INDICATOR_CLASS = '.ip-indicator';
 
-    var common = exports;
+    var COUNTRY_ICON_CLASS = '.country-icon';
+    var COUNTRY_ICON_DEFAULT = 'flag country-icon';
 
-    common.scan = function () {
-        window.i18n.scan();
-    };
+    var IP_LOAD_DONE = '.ip-load-done';
 
-    common.getLanguage = function (language) {
-
-        if (language) {
-            return $.Deferred().resolve(language).promise();
-        }
-
-        return window.straw.locale.getLanguage();
-    };
-
-    common.initI18n = function () {
-
-        var i18n = window.i18n;
-
-        i18n.setAvailableLanguages(['en', 'ja']);
-
-        return window.common.getLanguage(window.config.language).pipe(function (language) {
-
-            i18n.setLanguage(language);
-
-            return i18n.loadScript('i18n/{LANGUAGE}.js');
-
-        });
-    };
-
-    return exports;
-
-}(window));
-
-window.index = (function (window) {
-    'use strict';
+    var LINK_TO_HISTORY = '.link-to-records';
 
     var i18n = window.i18n;
 
@@ -182,7 +145,7 @@ window.index = (function (window) {
         // fetch ip and display
         window.IpRecordFactory.createFromGeoipReflector()
             .done(gotNewIpRecord)
-            .fail(window.index.startLoading);
+            .fail(index.startLoading);
 
         window.common.scan();
     };
@@ -216,7 +179,7 @@ window.index = (function (window) {
     };
 
     index.initEvents = function () {
-        $(IP_RELOAD_BUTTON_CLASS).click(window.index.startLoading);
+        $(IP_RELOAD_BUTTON_CLASS).click(index.startLoading);
 
         $(LINK_TO_HISTORY).click(function () {
             window.location.href = 'records.html';
@@ -225,4 +188,4 @@ window.index = (function (window) {
 
     return exports;
 
-}(window));
+}(window, window.$));
