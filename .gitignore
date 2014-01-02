@@ -1,9 +1,3 @@
-# Eclipse files
-.settings
-.classpath
-.project
-bin
-
 # idea files
 *.iml
 *.ipr
@@ -20,11 +14,15 @@ out
 # gradle build dir
 build
 
-# assets
+# android assets
 src/main/assets
 
 # android generated dir
 src/main/gen
+
+# local android sdk setting file (needed for IntelliJ)
+# its content is like "sdk.dir=/Application/android-sdk-macosx"
+local.properties
 
 # npm modules
 node_modules
