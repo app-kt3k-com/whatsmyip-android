@@ -7,6 +7,8 @@ window.page.index = (function (window, $) {
 
     var IP_LOADING_ID = '#ip-loading';
     var IP_INPUT_ID = '#ip-input';
+    var ASK_REVIEW_MODAL_ID = '#ask-review';
+
     var IP_RELOAD_BUTTON_CLASS = '.ip-reload-button';
     var IP_INDICATOR_CLASS = '.ip-indicator';
 
@@ -22,23 +24,25 @@ window.page.index = (function (window, $) {
     var exports = {};
     var index = exports;
 
-    var askReview = function (userActivity) {
+    exports.doReview = function () {
 
-        setTimeout(function () {
+        var repository = new window.UserActivityRepository();
 
-            if (window.confirm(window.i18n.t('common.thanks_using_and_ask_review'))) {
+        repository.retrieve().done(function (userActivity) {
 
-                userActivity.hasReviewed = true;
+            userActivity.hasReviewed = true;
 
-                var repository = new window.UserActivityRepository();
+            repository.store(userActivity);
 
-                repository.store(userActivity);
-
-                window.common.openMarketLink();
-
-            }
+            window.common.openMarketLink();
 
         });
+
+    };
+
+    var askReview = function () {
+
+        $(ASK_REVIEW_MODAL_ID).modal('show');
 
     };
 
@@ -54,7 +58,7 @@ window.page.index = (function (window, $) {
 
             if (window.ReviewRemindingSpecification.shouldRemindReview(userActivity)) {
 
-                askReview(userActivity);
+                askReview();
 
             }
 

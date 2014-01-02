@@ -1,5 +1,7 @@
 //= require jquery
 
+//= require bootstrap
+
 //= require underscore/underscore.js
 
 //= require straw-android.js/src/straw-android.js
