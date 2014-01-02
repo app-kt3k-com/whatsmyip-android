@@ -12,10 +12,10 @@ window.page.index = (function (window, $) {
     var IP_RELOAD_BUTTON_CLASS = '.ip-reload-button';
     var IP_INDICATOR_CLASS = '.ip-indicator';
 
+    var MAIN_CONTROLS = '.main-control';
+
     var COUNTRY_ICON_CLASS = '.country-icon';
     var COUNTRY_ICON_DEFAULT = 'flag country-icon';
-
-    var IP_LOAD_DONE = '.ip-load-done';
 
     var LINK_TO_HISTORY = '.link-to-records';
 
@@ -123,8 +123,8 @@ window.page.index = (function (window, $) {
         // fill info color
         $(IP_INDICATOR_CLASS).addClass('alert-info');
 
-
-        $(IP_LOAD_DONE).css('display', 'block');
+        // enable main controls
+        $(MAIN_CONTROLS).removeClass('disabled');
 
         window.common.scan();
     };
@@ -145,7 +145,8 @@ window.page.index = (function (window, $) {
         // remove info color
         $(IP_INDICATOR_CLASS).removeClass('alert-info');
 
-        $(IP_LOAD_DONE).css('display', 'none');
+        // disable main controls
+        $(MAIN_CONTROLS).addClass('disabled');
 
         // reset country icon
         $(COUNTRY_ICON_CLASS).attr('class', COUNTRY_ICON_DEFAULT);
