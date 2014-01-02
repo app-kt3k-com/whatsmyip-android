@@ -1,7 +1,7 @@
 window.i18n.setResource({
     "common.brand.my": "My",
     "common.brand.address": "Address",
-    "common.dialog.ok": "Yes",
+    "common.dialog.yes": "Yes",
     "common.dialog.not_now": "Not Now",
     "common.dialog.thanks_for_using_app": "Thanks for using the app!",
     "common.dialog.would_you_review_the_app": "Would you review this app?",

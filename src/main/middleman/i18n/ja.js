@@ -1,7 +1,7 @@
 window.i18n.setResource({
     "common.brand.my": "My",
     "common.brand.address": "Address",
-    "common.dialog.ok": "はい",
+    "common.dialog.yes": "はい",
     "common.dialog.not_now": "あとで",
     "common.dialog.thanks_for_using_app": "使ってくれてありがとう！",
     "common.dialog.would_you_review_the_app": "アプリを評価しませんか？",
