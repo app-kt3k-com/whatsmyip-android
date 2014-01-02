@@ -42,7 +42,11 @@ window.page.index = (function (window, $) {
 
     var askReview = function () {
 
-        $(ASK_REVIEW_MODAL_ID).modal('show');
+        setTimeout(function () {
+
+            $(ASK_REVIEW_MODAL_ID).modal('show');
+
+        }, 800);
 
     };
 
