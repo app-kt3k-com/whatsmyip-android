@@ -4,19 +4,19 @@ title: My IP Address
 
 <div class="container">
 
-  <h1>Current IP Address</h1>
+  <h2 class="page-title">Current IP Address</h2>
 
   {% include 'loading' %}
 
   <div class="ip-load-done" style="margin-top: 30px; ">
 
-    <button type="button" class="btn btn-info link-to-records main-control disabled">
+    <button type="button" class="btn btn-info link-to-records main-control" style="visibility: hidden;">
 
       <i class="fa fa-calendar"></i> <t>page.history</t>
 
     </button>
 
-    <button type="button" class="btn btn-default ip-reload-button main-control disabled">
+    <button type="button" class="btn btn-default ip-reload-button main-control" style="visibility: hidden;">
 
       <i class="fa fa-refresh"></i> <t>common.reload</t>
 

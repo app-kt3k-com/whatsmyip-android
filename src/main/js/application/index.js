@@ -124,7 +124,7 @@ window.page.index = (function (window, $) {
         $(IP_INDICATOR_CLASS).addClass('alert-info');
 
         // enable main controls
-        $(MAIN_CONTROLS).removeClass('disabled');
+        $(MAIN_CONTROLS).css('visibility', 'visible');
 
         window.common.scan();
     };
@@ -146,7 +146,7 @@ window.page.index = (function (window, $) {
         $(IP_INDICATOR_CLASS).removeClass('alert-info');
 
         // disable main controls
-        $(MAIN_CONTROLS).addClass('disabled');
+        $(MAIN_CONTROLS).css('visibility', 'hidden');
 
         // reset country icon
         $(COUNTRY_ICON_CLASS).attr('class', COUNTRY_ICON_DEFAULT);
