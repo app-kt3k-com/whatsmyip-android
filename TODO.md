@@ -1,20 +1,15 @@
 # TODO
 
-- implement bootstrap modal instead of window.confirm function
-  - window.confirm is unusable
-
 - retry policy and give-up policy for ip address retrieving
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
 
-- internationalize loading indicator
-- don't show loading indicator if page transition is fast
+- don't show loading indicator
 
-- app description
-  - take screenshots
-    - current ip address
-    - history page
-    - other materials
+- take screenshots
+  - current ip address
+  - history page
+  - other materials
 
 - build signed apk
 
@@ -40,8 +35,10 @@
 
 
 
-DONE
-----
+# DONE
+
+- implement bootstrap modal instead of window.confirm function - done
+  - window.confirm is unusable
 - implement open market function - done
 - Uri plugin (to open market:// uri directly) - done
 - review reminding specification - done
