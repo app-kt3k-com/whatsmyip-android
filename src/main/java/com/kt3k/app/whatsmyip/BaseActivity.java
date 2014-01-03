@@ -73,7 +73,6 @@ public class BaseActivity extends Activity {
     /**
      * set up the WebView
      */
-    @SuppressLint("SetJavaScriptEnabled")
     private void setUpWebView() {
 
         // create WebView
@@ -89,7 +88,7 @@ public class BaseActivity extends Activity {
         webView.setScrollbarFadingEnabled(true);
 
         // set WebViewClient
-        webView.setWebViewClient(new CustomWebViewClient(this.getString("wait_message", "Loading")));
+        webView.setWebViewClient(new WebViewClient());
 
         // set WebChromeClient
         webView.setWebChromeClient(new WebChromeClient());
@@ -99,9 +98,6 @@ public class BaseActivity extends Activity {
 
         // enable DomStorage (i.e. localStorage and SessionStorage)
         webView.getSettings().setDomStorageEnabled(true);
-
-        // set DB path
-        webView.getSettings().setDatabasePath((new File(getCacheDir(), "/database")).toString());
 
         // set background color white
         webView.setBackgroundColor(Color.WHITE);
@@ -174,30 +170,4 @@ public class BaseActivity extends Activity {
         this.straw.onBackPressed();
     }
 
-    class CustomWebViewClient extends WebViewClient {
-        private ProgressDialog dialog;
-        private String loadingMessage;
-
-        public CustomWebViewClient(String loadingMessage) {
-            super();
-            this.dialog = null;
-            this.loadingMessage = loadingMessage;
-        }
-
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            this.dialog = new ProgressDialog(view.getContext());
-            this.dialog.setMessage(this.loadingMessage);
-            this.dialog.show();
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            if (null != dialog) {
-                //ダイアログを削除
-                this.dialog.dismiss();
-                this.dialog = null;
-            }
-        }
-    }
 }
