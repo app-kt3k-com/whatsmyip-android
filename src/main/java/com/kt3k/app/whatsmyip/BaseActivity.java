@@ -31,6 +31,10 @@ public class BaseActivity extends Activity {
     private Boolean adEnabled = true;
     private String url;
 
+    private static final String DEFAULT_START_PATH = "file:///android_asset/index.html";
+    private static final String ADMOB_PUBLISHER_ID = "a14f2a8f4f1aa29";
+    private static final String AD_UNIT_ID = "ca-app-pub-3872994406664392/3965510198";
+
     /**
      * set up window
      */
@@ -80,7 +84,7 @@ public class BaseActivity extends Activity {
 
         //
         if(url == null || "".equals(url)) {
-            url = this.getAppHome();
+            url = DEFAULT_START_PATH;
         }
 
         // setting scroll bar styles
@@ -114,7 +118,9 @@ public class BaseActivity extends Activity {
      * set up the AdView
      */
     private void setUpAdView() {
-        adView = new AdView(this, AdSize.SMART_BANNER, this.getPublisherId());
+        adView = new AdView(this, AdSize.SMART_BANNER, ADMOB_PUBLISHER_ID);
+        //adView.setAdUnitId(R.string.adUnitId);
+        //adView.setAdSize(AdSize.SMART_BANNER);
 
         // set up the request
         AdRequest adRequest = new AdRequest();
@@ -126,34 +132,6 @@ public class BaseActivity extends Activity {
 
         // request an ad
         adView.loadAd(adRequest);
-    }
-
-    /**
-     * get string for key from string resources
-     * @param key to get
-     * @param defaultValue if value unavailable
-     * @return string for key or default if string unavailable
-     */
-    private String getString(String key, String defaultValue) {
-        String str;
-
-        try {
-            int resId = R.string.class.getField(key).getInt(null);
-            str = this.getString(resId);
-
-        } catch (Exception e) {
-            str = defaultValue;
-        }
-
-        return str;
-    }
-
-    private String getAppHome() {
-        return this.getString("app_home", "file:///android_asset/") + this.getString("app_index", "index.html");
-    }
-
-    private String getPublisherId() {
-        return this.getString("app_publisher_id", "");
     }
 
     @Override

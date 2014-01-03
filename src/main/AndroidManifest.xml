@@ -8,11 +8,11 @@
 
     <application
         android:icon="@drawable/ip"
-        android:label="@string/app_name"
+        android:label="@string/appName"
         android:hardwareAccelerated="true" >
         <activity
             android:name=".BaseActivity"
-            android:label="@string/app_screen_name"
+            android:label="@string/appScreenName"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action
