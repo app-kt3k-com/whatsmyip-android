@@ -28,7 +28,7 @@ tasks.withType(Compile) {
 }
 
 dependencies {
-    compile files('libs/GoogleAdMobAdsSdk-6.4.1.jar')
+    compile group: 'com.google.android.gms', name: 'play-services', version: '4.0.30'
 
     compile 'org.kt3k.straw:straw-android:0.6.2', {
         exclude group: 'com.google.android'

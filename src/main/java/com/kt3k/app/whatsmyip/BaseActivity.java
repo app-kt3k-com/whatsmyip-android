@@ -1,13 +1,8 @@
 package com.kt3k.app.whatsmyip;
 
-import java.io.File;
-
 import org.kt3k.straw.Straw;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -18,7 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
-import com.google.ads.*;
+import com.google.android.gms.ads.*;
 
 public class BaseActivity extends Activity {
 
@@ -64,7 +59,7 @@ public class BaseActivity extends Activity {
         if (this.adEnabled) {
             this.setUpAdView();
 
-            this.adView.setGravity(Gravity.BOTTOM);
+            //this.adView.setGravity(Gravity.BOTTOM);
 
             LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 0.0f);
 
@@ -118,17 +113,15 @@ public class BaseActivity extends Activity {
      * set up the AdView
      */
     private void setUpAdView() {
-        adView = new AdView(this, AdSize.SMART_BANNER, ADMOB_PUBLISHER_ID);
-        //adView.setAdUnitId(R.string.adUnitId);
-        //adView.setAdSize(AdSize.SMART_BANNER);
+        adView = new AdView(this);
+        adView.setAdUnitId(AD_UNIT_ID);
+        adView.setAdSize(AdSize.SMART_BANNER);
 
         // set up the request
-        AdRequest adRequest = new AdRequest();
-
-        // set test devices
-        adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
-        //adRequest.addTestDevice("DA5B0069BA8827B46FD8DBDB70EB7FAE"); // Test Device 1
-        //adRequest.addTestDevice("7DCEAF5D75884209E5102213D1EA33C6"); // Test Device 2
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("DA5B0069BA8827B46FD8DBDB70EB7FAE") // Test Device 1
+                .addTestDevice("7DCEAF5D75884209E5102213D1EA33C6") // Test Device 2
+                .build();
 
         // request an ad
         adView.loadAd(adRequest);
