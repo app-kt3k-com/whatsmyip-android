@@ -3,6 +3,7 @@
 - retry policy and give-up policy for ip address retrieving
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
+  - don't toast start loading message when retry
 
 - don't show loading indicator
 
