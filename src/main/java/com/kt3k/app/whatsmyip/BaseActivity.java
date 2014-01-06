@@ -30,13 +30,6 @@ public class BaseActivity extends Activity {
     private static final String AD_UNIT_ID = "ca-app-pub-3872994406664392/3965510198";
 
     /**
-     * set up window
-     */
-    private void setUpWindow() {
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    }
-
-    /**
      * set up the main layout
      */
     private void setUpLayout() {
@@ -50,34 +43,29 @@ public class BaseActivity extends Activity {
         // set layout as content view
         this.setContentView(layout);
 
-        // set up and layout the WebView
-        this.setUpWebView();
+        // create, set up and layout the WebView
+        this.webView = this.createWebView(DEFAULT_START_PATH);
         this.layout.addView(this.webView, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f));
 
-        // if ad enable then add ad
+        // if ad enabled then put ads
         if (this.adEnabled) {
-            this.setUpAdView();
-
+            // create layout parameter
             LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 0.0f);
-
             p.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
 
+            // create and layout ad
+            this.adView = this.createAd();
             this.layout.addView(this.adView, p);
         }
     }
 
     /**
-     * set up the WebView
+     * create the WebView
      */
-    private void setUpWebView() {
+    private WebView createWebView(String url) {
 
         // create WebView
-        webView = new WebView(this);
-
-        //
-        if(url == null || "".equals(url)) {
-            url = DEFAULT_START_PATH;
-        }
+        WebView webView = new WebView(this);
 
         // setting scroll bar styles
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
@@ -104,13 +92,15 @@ public class BaseActivity extends Activity {
 
         // load url
         webView.loadUrl(url);
+
+        return webView;
     }
 
     /**
      * set up the AdView
      */
-    private void setUpAdView() {
-        adView = new AdView(this);
+    private AdView createAd() {
+        AdView adView = new AdView(this);
         adView.setAdUnitId(AD_UNIT_ID);
         adView.setAdSize(AdSize.SMART_BANNER);
 
@@ -123,14 +113,18 @@ public class BaseActivity extends Activity {
 
         // request an ad
         adView.loadAd(adRequest);
+
+        return adView;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.setUpWindow();
+        // no title bar
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        // set up content layouts
         this.setUpLayout();
     }
 
@@ -141,19 +135,28 @@ public class BaseActivity extends Activity {
 
     @Override
     public void onDestroy() {
-        this.adView.destroy();
+        if (this.adView != null) {
+            this.adView.destroy();
+        }
+
         super.onDestroy();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        this.adView.resume();
+
+        if (this.adView != null) {
+            this.adView.resume();
+        }
     }
 
     @Override
     public void onPause() {
-        this.adView.pause();
+        if (this.adView != null) {
+            this.adView.pause();
+        }
+
         super.onPause();
     }
 
