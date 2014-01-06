@@ -23,11 +23,10 @@ public class BaseActivity extends Activity {
 
     private Straw straw;
 
-    private Boolean adEnabled = true;
+    private Boolean adEnabled = false;
     private String url;
 
     private static final String DEFAULT_START_PATH = "file:///android_asset/index.html";
-    private static final String ADMOB_PUBLISHER_ID = "a14f2a8f4f1aa29";
     private static final String AD_UNIT_ID = "ca-app-pub-3872994406664392/3965510198";
 
     /**
@@ -58,8 +57,6 @@ public class BaseActivity extends Activity {
         // if ad enable then add ad
         if (this.adEnabled) {
             this.setUpAdView();
-
-            //this.adView.setGravity(Gravity.BOTTOM);
 
             LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 0.0f);
 
@@ -119,8 +116,9 @@ public class BaseActivity extends Activity {
 
         // set up the request
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("DA5B0069BA8827B46FD8DBDB70EB7FAE") // Test Device 1
-                .addTestDevice("7DCEAF5D75884209E5102213D1EA33C6") // Test Device 2
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                //.addTestDevice("DA5B0069BA8827B46FD8DBDB70EB7FAE") // Test Device 1
+                //.addTestDevice("7DCEAF5D75884209E5102213D1EA33C6") // Test Device 2
                 .build();
 
         // request an ad
@@ -139,6 +137,24 @@ public class BaseActivity extends Activity {
     @Override
     public void onBackPressed() {
         this.straw.onBackPressed();
+    }
+
+    @Override
+    public void onDestroy() {
+        this.adView.destroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.adView.resume();
+    }
+
+    @Override
+    public void onPause() {
+        this.adView.pause();
+        super.onPause();
     }
 
 }
