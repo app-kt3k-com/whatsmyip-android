@@ -3,9 +3,8 @@
 - retry policy and give-up policy for ip address retrieving
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
-  - don't toast start loading message when retry
 
-- don't show loading indicator
+- don't toast start loading message when auto-retrying
 
 - take screenshots
   - current ip address
@@ -13,9 +12,6 @@
   - other materials
 
 - build signed apk
-
-- get new admob code for this app
-- implement new admob code
 
 - release!
 
@@ -38,6 +34,9 @@
 
 # DONE
 
+- don't show loading indicator - done
+- get new admob code for this app - done
+- implement new admob code - done
 - implement bootstrap modal instead of window.confirm function - done
   - window.confirm is unusable
 - implement open market function - done
