@@ -12,10 +12,6 @@ repositories {
 buildscript {
     repositories {
         mavenCentral()
-
-        maven {
-            url 'http://kt3k.github.io/repository/maven/release'
-        }
     }
 
     dependencies {
