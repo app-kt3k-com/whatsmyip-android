@@ -8,7 +8,8 @@ window.i18n.setResource({
     "common.loading": "読み込み中...",
     "common.googleplay": "Google Play",
     "common.reload": "リロード",
-    "ip.start_loading": "IP アドレスを取得しています...",
     "ip.done": "完了!",
+    "ip.failed_to_get_new_ip_record": "IP アドレスの取得に失敗しました。時間をおいて再度お試しください。",
+    "ip.start_loading": "IP アドレスを取得しています...",
     "page.history": "履歴",
 });
