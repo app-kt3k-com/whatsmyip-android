@@ -39,8 +39,8 @@ window.IpRecordFactory = (function ($, straw) {
     /**
      *
      */
-    exports.createFromGeoipReflector = function () {
-        return straw.http.get('http://geoip-reflector.herokuapp.com/').pipe(function (obj) {
+    exports.createFromGeoipReflector = function (timeout) {
+        return straw.http.get('http://geoip-reflector.herokuapp.com/', timeout).pipe(function (obj) {
             return exports.createFromGeoipReflectorResponseText(obj.content);
         });
     };

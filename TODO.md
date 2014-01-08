@@ -1,10 +1,5 @@
 # TODO
 
-- retry policy and give-up policy for ip address retrieving
-  - limit number of retry count (about 10?)
-  - limit user waiting time (about 20 seconds?)
-
-- don't toast start loading message when auto-retrying
 
 - take screenshots
   - current ip address
@@ -34,6 +29,10 @@
 
 # DONE
 
+- retry policy and give-up policy for ip address retrieving - done
+  - limit number of retry count (about 10?)
+  - limit user waiting time (about 20 seconds?)
+- don't toast start loading message when auto-retrying - done
 - don't show loading indicator - done
 - get new admob code for this app - done
 - implement new admob code - done

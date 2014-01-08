@@ -152,11 +152,57 @@ window.page.index = (function (window, $) {
         $(COUNTRY_ICON_CLASS).attr('class', COUNTRY_ICON_DEFAULT);
 
         // fetch ip and display
-        window.IpRecordFactory.createFromGeoipReflector()
-            .done(gotNewIpRecord)
-            .fail(index.startLoading);
+        exports.GeoipLoader().done(gotNewIpRecord).fail(failedToGetNewIpRecord);
 
         window.common.scan();
+    };
+
+    var failedToGetNewIpRecord = function () {
+        // toast welcome message
+        window.straw.ui.toast(i18n.t('ip.failed_to_get_new_ip_record'));
+
+        // fill ui
+        fillIpAddr('failed...', false);
+    };
+
+    exports.GeoipLoader = function (timeout, retryLimit) {
+
+        var d = $.Deferred();
+        var startTime = new Date().getTime();
+        var retryCount = 0;
+
+        // default to 15 seconds
+        timeout = timeout == null ? 15000 : timeout;
+
+        // default to 10
+        retryLimit = retryLimit == null ? 10 : retryLimit;
+
+        var tryToLoad = function () {
+
+            if (startTime + timeout <= new Date().getTime()) {
+                d.reject();
+
+                return;
+            }
+
+            if (retryCount >= retryLimit) {
+                d.reject();
+
+                return;
+            }
+
+
+            window.IpRecordFactory.createFromGeoipReflector(15000)
+                .done(function (ipRecord) {
+                    d.resolve(ipRecord);
+                })
+                .fail(tryToLoad);
+        };
+
+        tryToLoad();
+
+        return d;
+
     };
 
     index.main = function () {
