@@ -23,7 +23,7 @@ public class BaseActivity extends Activity {
 
     private Straw straw;
 
-    private Boolean adEnabled = false;
+    private Boolean adEnabled = true;
     private String url;
 
     private static final String DEFAULT_START_PATH = "file:///android_asset/index.html";
