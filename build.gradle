@@ -38,5 +38,26 @@ dependencies {
 android {
     compileSdkVersion 17
     buildToolsVersion '17.0'
-}
 
+    if (System.getenv("KEYSTORE") != null) {
+
+        // release signing settings
+        signingConfigs {
+            release {
+                // to build release version keystore settings should be set in env variables
+                storeFile file(System.getenv("KEYSTORE"))
+                storePassword System.getenv("KEYSTORE_PASSWORD")
+                keyAlias System.getenv("KEY_ALIAS")
+                keyPassword System.getenv("KEY_PASSWORD")
+            }
+        }
+
+        buildTypes {
+                release {
+                    signingConfig signingConfigs.release
+                }
+        }
+
+    }
+
+}
