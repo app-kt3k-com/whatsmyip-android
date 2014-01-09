@@ -1,6 +1,8 @@
 # TODO
 
 
+- failed to get ui
+
 - take screenshots
   - current ip address
   - history page
