@@ -13,8 +13,15 @@ window.page.records = (function (window) {
     };
 
 
+    var zeroPad = function (n, width) {
+        n = n + '';
+        return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+    };
+
+
     exports.dateFormat = function (date) {
-        return date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        return date.getFullYear() + '/' + zeroPad(date.getMonth() + 1, 2) + '/' + zeroPad(date.getDate(), 2) +
+        ' ' + zeroPad(date.getHours(), 2) + ':' + zeroPad(date.getMinutes(), 2) + ':' + zeroPad(date.getSeconds(), 2);
     };
 
 
