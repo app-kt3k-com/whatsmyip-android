@@ -1,18 +1,24 @@
 # TODO
 
 
-- failed to get ui
+- cool ui for failed to get situation
 
 - take screenshots
   - current ip address
   - history page
   - other materials
 
-- build signed apk
+- set up local jenkins to build & store the release versions
 
 - release!
 
+- ios version
+
 - whois tooltip on history page
+
+- achievements feature
+
+- send ip address feature
 
 
 - some usage analytics
@@ -31,6 +37,7 @@
 
 # DONE
 
+- build signed apk - done
 - retry policy and give-up policy for ip address retrieving - done
   - limit number of retry count (about 10?)
   - limit user waiting time (about 20 seconds?)
