@@ -85,7 +85,7 @@ window.page.index = (function (window, $) {
             repository.setLatest(ipRecord);
 
             if (ipRecord.ipAddr === lastRecord.ipAddr && ipRecord.isSameDay(new Date(lastRecord.createdAt))) {
-                // if gotten record is same as the latest and recorded date is same
+                // if the got record is same as the latest and recorded date is same
                 // then skip history recoding
                 return;
             }
