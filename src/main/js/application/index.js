@@ -94,13 +94,37 @@ window.page.index = (function (window, $) {
             repository.add(ipRecord);
         });
 
-        gotIpRecord(ipRecord);
+        fillIpAddr(ipRecord.ipAddr);
+        fillCountryCode(ipRecord.countryCode);
+
+        // loading icon turn to thumbs up
+        $(IP_LOADING_ID).addClass('fa-thumbs-o-up');
+
+        // add info color
+        $(IP_INDICATOR_CLASS).addClass('alert-info');
     };
 
-    var gotIpRecord = function (ipRecord) {
+    var gotCachedIpRecord = function (ipRecord) {
 
         fillIpAddr(ipRecord.ipAddr);
         fillCountryCode(ipRecord.countryCode);
+
+        // loading icon turn into check mark
+        $(IP_LOADING_ID).addClass('fa-check');
+    };
+
+    var failedToGetNewIpRecord = function () {
+        // toast welcome message
+        window.straw.ui.toast(i18n.t('ip.failed_to_get_new_ip_record'));
+
+        // fill ui
+        fillIpAddr(i18n.t('ip.failed'), false);
+
+        // loading icon turn to frown
+        $(IP_LOADING_ID).addClass('fa-frown-o');
+
+        // add danger color
+        $(IP_INDICATOR_CLASS).addClass('alert-danger');
     };
 
     var fillCountryCode = function (countryCode) {
@@ -118,10 +142,8 @@ window.page.index = (function (window, $) {
         $(IP_INPUT_ID).val(ipAddr);
 
         // stop spin and thumbs up
-        $(IP_LOADING_ID).removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-thumbs-o-up');
+        $(IP_LOADING_ID).removeClass('fa-refresh').removeClass('fa-spin');
 
-        // fill info color
-        $(IP_INDICATOR_CLASS).addClass('alert-info');
 
         // enable main controls
         $(MAIN_CONTROLS).css('visibility', 'visible');
@@ -140,10 +162,10 @@ window.page.index = (function (window, $) {
         $(IP_INPUT_ID).val('');
 
         // spin refresh icon
-        $(IP_LOADING_ID).addClass('fa-refresh').addClass('fa-spin').removeClass('fa-thumbs-o-up');
+        $(IP_LOADING_ID).addClass('fa-refresh').addClass('fa-spin').removeClass('fa-check').removeClass('fa-frown-o').removeClass('fa-thumbs-o-up');
 
         // remove info color
-        $(IP_INDICATOR_CLASS).removeClass('alert-info');
+        $(IP_INDICATOR_CLASS).removeClass('alert-info').removeClass('alert-danger');
 
         // disable main controls
         $(MAIN_CONTROLS).css('visibility', 'hidden');
@@ -155,14 +177,6 @@ window.page.index = (function (window, $) {
         exports.GeoipLoader().done(gotNewIpRecord).fail(failedToGetNewIpRecord);
 
         window.common.scan();
-    };
-
-    var failedToGetNewIpRecord = function () {
-        // toast welcome message
-        window.straw.ui.toast(i18n.t('ip.failed_to_get_new_ip_record'));
-
-        // fill ui
-        fillIpAddr('failed...', false);
     };
 
     exports.GeoipLoader = function (timeout, retryLimit) {
@@ -192,7 +206,7 @@ window.page.index = (function (window, $) {
             }
 
 
-            window.IpRecordFactory.createFromGeoipReflector(15000)
+            window.IpRecordFactory.createFromGeoipReflector(5000)
                 .done(function (ipRecord) {
                     d.resolve(ipRecord);
                 })
@@ -219,7 +233,7 @@ window.page.index = (function (window, $) {
 
                 if (ipRecord != null && ipRecord.isFresh()) {
 
-                    gotIpRecord(ipRecord);
+                    gotCachedIpRecord(ipRecord);
 
                 } else {
 
