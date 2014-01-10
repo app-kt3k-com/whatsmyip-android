@@ -1,9 +1,6 @@
 # TODO
 
-
-- cool ui for failed to get situation
-
-- take screenshots
+- take app screenshots
   - current ip address
   - history page
   - other materials
@@ -18,7 +15,7 @@
 
 - achievements feature
 
-- send ip address feature
+- send/share ip address feature
 
 
 - some usage analytics
@@ -37,6 +34,7 @@
 
 # DONE
 
+- cool ui for failed to get situation - done
 - build signed apk - done
 - retry policy and give-up policy for ip address retrieving - done
   - limit number of retry count (about 10?)

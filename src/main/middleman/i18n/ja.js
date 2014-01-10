@@ -9,6 +9,7 @@ window.i18n.setResource({
     "common.googleplay": "Google Play",
     "common.reload": "リロード",
     "ip.done": "完了!",
+    "ip.failed": "読み込み失敗...",
     "ip.failed_to_get_new_ip_record": "IP アドレスの取得に失敗しました。時間をおいて再度お試しください。",
     "ip.start_loading": "IP アドレスを取得しています...",
     "page.history": "履歴",
