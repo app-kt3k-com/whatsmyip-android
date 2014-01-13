@@ -1,8 +1,30 @@
-This app shows your IP address and records the history of IP address.
+title: My IP Address
+description: This app shows your IP address and records the history of IP address.
+promo-text(optional): -
+recent-changes(optional): -
+
+# images
+screenshots:
+  phone: []
+  7inch-tablet: []
+  10inch-tablet: []
+high-res-icon: -
+feature-graphics: -
+promo-graphics: -
+promo-video: -
+
+application-type: Applications
+category: Tools
+content-rating: Everyone
+
+web-site: http://app.kt3k.com/
+email: app.kt3k@gmai.com
+phone(optional): (blnak)
+
+privacy-policy(optional): blank
 
 
-This app shows your IP address.
-
-IP address changes.
-
-This app records your IP address for you!
+other:
+- This app shows your IP address.
+- IP address changes.
+- This app records your IP address for you!
