@@ -3,7 +3,6 @@
 - take app screenshots
   - current ip address
   - history page
-  - other materials
 
 - set up local jenkins to build & store the release versions
 
@@ -34,6 +33,8 @@
 
 # DONE
 
+- random geoip endpoint - done
+- other materials - done
 - cool ui for failed to get situation - done
 - build signed apk - done
 - retry policy and give-up policy for ip address retrieving - done
