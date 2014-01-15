@@ -4,7 +4,11 @@
   - current ip address
   - history page
 
-- set up local jenkins to build & store the release versions
+- optimize apk size
+  - minify js and css - done
+  - delete disused google plus icons. Where are these icons come from? annoying
+
+- set up local jenkins to build & store the release builds
 
 - release!
 
