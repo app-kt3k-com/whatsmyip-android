@@ -24,8 +24,6 @@ tasks.withType(Compile) {
 }
 
 dependencies {
-    compile group: 'com.google.android.gms', name: 'play-services', version: '4.0.30'
-
     compile 'org.kt3k.straw:straw-android:0.6.2', {
         exclude group: 'com.google.android'
     }
@@ -43,6 +41,7 @@ android {
 
         // release signing settings
         signingConfigs {
+
             release {
                 // to build release version keystore settings should be set in env variables
                 storeFile file(System.getenv("KEYSTORE"))
