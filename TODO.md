@@ -4,10 +4,6 @@
   - current ip address
   - history page
 
-- optimize apk size
-  - minify js and css - done
-  - delete disused google plus icons. Where are these icons come from? annoying
-
 - set up local jenkins to build & store the release builds
 
 - release!
@@ -33,10 +29,11 @@
 - straw-ios-plugin.js
 
 
-
-
 # DONE
 
+- optimize apk size
+  - minify js and css - done
+  - delete disused google plus icons. Where are these icons come from? annoying - done (deleted admob)
 - random geoip endpoint - done
 - other materials - done
 - cool ui for failed to get situation - done
