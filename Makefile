@@ -1,15 +1,15 @@
 PACKAGE=com.kt3k.app.whatsmyip
 ACTIVITY=$(PACKAGE).BaseActivity
 
-.PHONY: debug release clean grunt compile-assets debug-install device-debug
+.PHONY: build build-all clean grunt compile-assets debug-install device-debug
 
-device-debug: grunt compile-assets debug debug-install device-launch-app device-logcat
+device-debug: build-all debug-install device-launch-app device-logcat
 	@echo
 
-debug:
-	gradle build
+build-all: grunt compile-assets build
+	@echo
 
-release:
+build:
 	gradle build
 
 clean:
@@ -26,7 +26,7 @@ debug-install:
 	adb install -r build/apk/whatsmyip-android-debug-unaligned.apk
 
 device-launch-app:
-	adb shell am start -n com.kt3k.app.whatsmyip/com.kt3k.app.whatsmyip.BaseActivity
+	adb shell am start -n $(PACKAGE)/$(ACTIVITY)
 
 device-logcat:
 	adb logcat *:E
