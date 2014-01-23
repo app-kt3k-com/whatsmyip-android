@@ -4,8 +4,32 @@
 
 > Current IP address viewer and recorder app for Android
 
-Directory Structure
--------------------
+# Screenshots
+
+![](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/doc/screenshot.en/index_page.png =320x) ![](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/doc/screenshot.en/history_page.png =320x)
+
+
+# How to build
+
+## prerequisites
+
+- bundler (ruby gem)
+- grunt-cli (npm module)
+- adb (tool of Android SDK)
+- gradle (build tool to compile java)
+
+
+```
+# enter project dir
+cd whatsmyip-android
+
+npm install
+bower install
+
+make
+```
+
+# Directory Structure
 
 ```
 .
@@ -30,8 +54,7 @@ Directory Structure
 ```
 
 
-Tools Used
-----------
+# Tools Used
 
 - bower for frontend dependency management
 - grunt for js testing
