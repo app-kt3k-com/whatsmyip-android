@@ -1,10 +1,7 @@
 # TODO
 
-- take app screenshots
-  - current ip address
-  - history page
 
-- set up local jenkins to build & store the release builds
+- do some tests of release apk on the device
 
 - release!
 
@@ -31,6 +28,10 @@
 
 # DONE
 
+- set up local jenkins to build & store the release builds - done
+- take app screenshots - done
+  - current ip address
+  - history page
 - optimize apk size
   - minify js and css - done
   - delete disused google plus icons. Where are these icons come from? annoying - done (deleted admob)
