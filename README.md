@@ -6,7 +6,7 @@
 
 # Screenshots
 
-![](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/doc/screenshot.en/index_page.png =320x) ![](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/doc/screenshot.en/history_page.png =320x)
+![](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/doc/screenshot.en/index_page180.png) . ![](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/doc/screenshot.en/history_page180.png)
 
 
 # How to build
