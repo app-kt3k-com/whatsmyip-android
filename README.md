@@ -4,6 +4,10 @@
 
 > Current IP address viewer and recorder app for Android
 
+# Google Play
+
+https://play.google.com/store/apps/details?id=com.kt3k.app.whatsmyip
+
 # Screenshots
 
 ![](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/doc/screenshot.en/index_page180.png) . ![](https://raw.github.com/app-kt3k-com/whatsmyip-android/master/doc/screenshot.en/history_page180.png)
