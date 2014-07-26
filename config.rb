@@ -11,9 +11,11 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
-set :bower_dir, '../../../bower_components'
+ready do
+  sprockets.append_path File.join root, "bower_components"
+  sprockets.append_path '../js'
+end
 
-sprockets.append_path '../js'
 
 
 config = {}
