@@ -5,9 +5,6 @@
 .idea/
 out
 
-# OS X folder attribute file
-.DS_Store
-
 # gradle caches
 .gradle
 
@@ -15,6 +12,7 @@ out
 build
 
 # android assets
+# assets are build by middleman
 src/main/assets
 
 # android generated dir
@@ -29,15 +27,6 @@ node_modules
 
 # bower components
 bower_components
-
-# vim swp file
-*.swp
-
-# jasmine spec runner
-_SpecRunner.html
-
-# grunt temporary files
-.grunt
 
 # instrumented js
 src/main/js-cov
