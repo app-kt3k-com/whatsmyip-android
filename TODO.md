@@ -1,9 +1,6 @@
 # TODO
 
 
-- do some tests of release apk on the device
-
-- release!
 
 - ios version
 
@@ -16,18 +13,10 @@
 
 - some usage analytics
 
-- straw-ios
-  - study cocoapods
-    - podfile, straw.podspec
-  - fix class names
-    - STStraw ?
-- straw-ios-plugin
-- straw-ios.js
-- straw-ios-plugin.js
-
-
 # DONE
-
+- straw-ios - done
+- do some tests of release apk on the device - done
+- release! - done
 - set up local jenkins to build & store the release builds - done
 - take app screenshots - done
   - current ip address
