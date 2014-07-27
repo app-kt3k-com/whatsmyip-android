@@ -22,7 +22,6 @@ module.exports = (g) ->
         helpers: [
           'bower_components/sinon-1.7.3.js/index.js'
         ]
-        keepRunner: true
 
       app:
         src: 'src/main/js/domain/*.js'
