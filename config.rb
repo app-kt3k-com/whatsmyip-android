@@ -1,7 +1,7 @@
 # middleman config file
 # see http://middlemanapp.com/
 
-set :source, 'src/main/middleman'
+set :source, 'm'
 
 set :build_dir, 'src/main/assets'
 
@@ -13,7 +13,7 @@ set :images_dir, 'images'
 
 ready do
   sprockets.append_path File.join root, "bower_components"
-  sprockets.append_path '../js'
+  sprockets.append_path '../src/main/js'
 end
 
 
