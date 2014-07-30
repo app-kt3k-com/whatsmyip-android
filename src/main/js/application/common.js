@@ -9,7 +9,7 @@ window.common = (function (window, $) {
     var common = exports;
 
     common.scan = function () {
-        window.i18n.scan();
+        window.t10.scan();
     };
 
     common.getLanguage = function (language) {
@@ -23,15 +23,15 @@ window.common = (function (window, $) {
 
     common.initI18n = function () {
 
-        var i18n = window.i18n;
+        var t10 = window.t10;
 
-        i18n.setAvailableLanguages(['en', 'ja']);
+        t10.setAvailableLanguages(['en', 'ja']);
 
         return window.common.getLanguage(window.config.language).pipe(function (language) {
 
-            i18n.setLanguage(language);
+            t10.setLanguage(language);
 
-            return i18n.loadScript('i18n/{LANGUAGE}.js');
+            return t10.loadScript('i18n/{LANGUAGE}.js');
 
         });
     };

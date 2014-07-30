@@ -1,4 +1,4 @@
-window.i18n.setResource({
+window.t10.setResource({
     "common.brand.my": "My",
     "common.brand.address": "Address",
     "common.dialog.yes": "はい",

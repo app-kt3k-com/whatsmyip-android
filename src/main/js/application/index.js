@@ -19,7 +19,7 @@ window.page.index = (function (window, $) {
 
     var LINK_TO_HISTORY = '.link-to-records';
 
-    var i18n = window.i18n;
+    var t10 = window.t10;
 
     var exports = {};
     var index = exports;
@@ -72,7 +72,7 @@ window.page.index = (function (window, $) {
     var gotNewIpRecord = function (ipRecord) {
 
         // toast welcome message
-        window.straw.ui.toast(i18n.t('ip.done'));
+        window.straw.ui.toast(t10.t('ip.done'));
 
         handleUserActivity();
 
@@ -115,10 +115,10 @@ window.page.index = (function (window, $) {
 
     var failedToGetNewIpRecord = function () {
         // toast welcome message
-        window.straw.ui.toast(i18n.t('ip.failed_to_get_new_ip_record'));
+        window.straw.ui.toast(t10.t('ip.failed_to_get_new_ip_record'));
 
         // fill ui
-        fillIpAddr(i18n.t('ip.failed'), false);
+        fillIpAddr(t10.t('ip.failed'), false);
 
         // loading icon turn to frown
         $(IP_LOADING_ID).addClass('fa-frown-o');
@@ -153,10 +153,10 @@ window.page.index = (function (window, $) {
 
     index.startLoading = function () {
 
-        var i18n = window.i18n;
+        var t10 = window.t10;
 
         // toast welcome message
-        window.straw.ui.toast(i18n.t('ip.start_loading'));
+        window.straw.ui.toast(t10.t('ip.start_loading'));
 
         // remove ip label
         $(IP_INPUT_ID).val('');
