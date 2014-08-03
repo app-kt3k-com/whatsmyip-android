@@ -9,4 +9,4 @@
 
 //= require t10
 
-//= require_tree ../../src/main/js
+//= require_tree ../../app/src

@@ -7,13 +7,13 @@ module.exports = (g) ->
     jshint:
       options:
         jshintrc: '.jshintrc'
-      source: 'src/main/js/**/*.js'
-      test: 'src/test/js/**/*.js'
+      source: 'app/src/**/*.js'
+      test: 'app/spec/**/*.js'
 
     jasmine:
 
       options:
-        specs: 'src/test/js/*spec.js'
+        specs: 'app/spec/*spec.js'
         vendor: [
           'bower_components/jquery/jquery.min.js'
           'bower_components/straw-android.js/src/**/*.js'
@@ -24,10 +24,10 @@ module.exports = (g) ->
         ]
 
       app:
-        src: 'src/main/js/domain/*.js'
+        src: 'app/src/domain/*.js'
 
       'app-cov':
-        src: 'src/main/js-cov/domain/*.js'
+        src: 'app/src-cov/domain/*.js'
         options:
           helpers: [
             'bower_components/sinon-1.7.3.js/index.js'
