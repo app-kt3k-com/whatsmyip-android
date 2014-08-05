@@ -1,10 +1,8 @@
 
 window.page = window.page || {};
 
-window.page.records = (function (window) {
+window.page.records = (function (window, $) {
     'use strict';
-
-    var $ = window.$;
 
     var exports = {};
 
@@ -71,4 +69,4 @@ window.page.records = (function (window) {
 
     return exports;
 
-}(window));
+}(window, window.$));

@@ -2,7 +2,7 @@
 
 window.page = window.page || {};
 
-window.page.index = (function (window, $) {
+window.page.index = (function (window, $, t10) {
     'use strict';
 
     var IP_LOADING_ID = '#ip-loading';
@@ -18,8 +18,6 @@ window.page.index = (function (window, $) {
     var COUNTRY_ICON_DEFAULT = 'flag country-icon';
 
     var LINK_TO_HISTORY = '.link-to-records';
-
-    var t10 = window.t10;
 
     var exports = {};
     var index = exports;
@@ -257,4 +255,4 @@ window.page.index = (function (window, $) {
 
     return exports;
 
-}(window, window.$));
+}(window, window.$, window.t10));
