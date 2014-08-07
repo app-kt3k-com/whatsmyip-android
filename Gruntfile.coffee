@@ -16,7 +16,7 @@ module.exports = (g) ->
         specs: 'app/spec/*spec.js'
         vendor: [
           'bower_components/jquery/jquery.min.js'
-          'bower_components/straw-android.js/src/**/*.js'
+          'bower_components/straw-android/src/**/*.js'
           'bower_components/straw-android-plugin.js/src/**/*.js'
         ]
         helpers: [
