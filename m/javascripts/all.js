@@ -2,8 +2,6 @@
 
 //= require bootstrap
 
-//= require underscore
-
 //= require es6-promise
 
 //= require t10
