@@ -4,6 +4,8 @@
 
 //= require underscore
 
+//= require es6-promise
+
 //= require straw-android.js/src/straw-android.js
 //= require_tree ../../bower_components/straw-android-plugin.js/src
 
