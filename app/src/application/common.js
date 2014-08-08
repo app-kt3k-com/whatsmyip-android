@@ -6,13 +6,11 @@ window.common = (function (window, $, t10, straw) {
 
     var exports = {};
 
-    var common = exports;
-
-    common.scan = function () {
+    exports.scan = function () {
         t10.scan();
     };
 
-    common.getLanguage = function (language) {
+    exports.getLanguage = function (language) {
 
         if (language) {
             return $.Deferred().resolve(language).promise();
@@ -21,11 +19,11 @@ window.common = (function (window, $, t10, straw) {
         return straw.locale.getLanguage();
     };
 
-    common.initI18n = function () {
+    exports.initI18n = function () {
 
         t10.setAvailableLanguages(['en', 'ja']);
 
-        return window.common.getLanguage(window.config.language).pipe(function (language) {
+        return exports.getLanguage(window.config.language).pipe(function (language) {
 
             t10.setLanguage(language);
 
