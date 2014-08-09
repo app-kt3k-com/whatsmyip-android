@@ -1,7 +1,5 @@
 
-var expect = window.expect;
-var describe = window.describe;
-var it = window.it;
+/* global describe, it, expect */
 
 describe('IpRecord', function () {
     'use strict';

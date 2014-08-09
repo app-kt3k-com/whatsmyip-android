@@ -1,11 +1,5 @@
 
-var describe = window.describe;
-var expect = window.expect;
-var it = window.it;
-
-var sinon = window.sinon;
-var straw = window.straw;
-var $ = window.$;
+/* global describe, it, expect, sinon, straw, $ */
 
 describe('IpRecordFactory', function () {
     'use strict';

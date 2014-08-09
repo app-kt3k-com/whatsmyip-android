@@ -1,13 +1,5 @@
 
-var expect = window.expect;
-var describe = window.describe;
-var it = window.it;
-
-var straw = window.straw;
-
-var sinon = window.sinon;
-
-var $ = window.$;
+/* global describe, it, expect, sinon, straw, $ */
 
 describe('UserActivityRepository', function () {
     'use strict';

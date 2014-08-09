@@ -1,8 +1,5 @@
 
-var describe = window.describe;
-var it = window.it;
-
-var expect = window.expect;
+/* global describe, it, expect */
 
 describe('ReviewRemindingSpecification', function () {
     'use strict';
