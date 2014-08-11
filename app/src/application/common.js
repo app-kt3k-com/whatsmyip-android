@@ -1,5 +1,5 @@
 
-window.common = (function (window, $, t10, straw) {
+window.common = (function (window, t10, straw, Promise) {
     'use strict';
 
     var APP_ID = 'com.kt3k.app.whatsmyip';
@@ -12,22 +12,19 @@ window.common = (function (window, $, t10, straw) {
 
     exports.getLanguage = function (language) {
 
-        if (language) {
-            return $.Deferred().resolve(language).promise();
-        }
+        return Promise.resolve(language || straw.locale.getLanguage());
 
-        return straw.locale.getLanguage();
     };
 
     exports.initI18n = function () {
 
         t10.setAvailableLanguages(['en', 'ja']);
 
-        return exports.getLanguage(window.config.language).pipe(function (language) {
+        return exports.getLanguage(window.config.language).then(function (language) {
 
             t10.setLanguage(language);
 
-            return t10.loadScript('i18n/{LANGUAGE}.js');
+            return Promise.resolve(t10.loadScript('i18n/{LANGUAGE}.js'));
 
         });
     };
@@ -45,4 +42,4 @@ window.common = (function (window, $, t10, straw) {
 
     return exports;
 
-}(window, window.$, window.t10, window.straw));
+}(window, window.t10, window.straw, window.Promise));
