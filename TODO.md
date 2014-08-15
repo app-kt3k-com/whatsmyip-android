@@ -1,5 +1,6 @@
 # TODO
 
+- separate core component from app
 - whois tooltip on history page
 - achievements feature
 - send/share ip address feature
