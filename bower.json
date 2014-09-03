@@ -16,5 +16,6 @@
     "tests"
   ],
   "dependencies": {
+    "whatsmyip-core": "https://github.com/app-kt3k-com/whatsmyip-core.git#~0.0.2"
   }
 }
