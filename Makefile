@@ -19,8 +19,7 @@ grunt:
 	grunt
 
 compile-assets:
-	bundle install
-	bundle exec middleman build
+	cd bower_components/whatsmyip-core; bundle install; bundle exec middleman build
 
 debug-install:
 	adb install -r build/apk/whatsmyip-android-debug-unaligned.apk
