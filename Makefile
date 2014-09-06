@@ -1,12 +1,12 @@
 PACKAGE=com.kt3k.app.whatsmyip
 ACTIVITY=$(PACKAGE).BaseActivity
 
-.PHONY: build build-all clean compile-assets debug-install device-debug
+.PHONY: build build-all clean assets debug-install device-debug
 
 device-debug: build-all debug-install device-launch-app device-logcat
 	@echo
 
-build-all: compile-assets build
+build-all: assets build
 	@echo
 
 build:
@@ -15,7 +15,7 @@ build:
 clean:
 	./gradlew clean
 
-compile-assets: bower_components
+assets: bower_components
 	cd bower_components/whatsmyip-core; bundle install; bundle exec middleman build
 
 debug-install:
