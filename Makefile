@@ -19,7 +19,7 @@ assets: bower_components
 	cd bower_components/whatsmyip-core; bundle install; bundle exec middleman build
 
 debug-install:
-	adb install -r build/apk/whatsmyip-android-debug-unaligned.apk
+	adb install -r build/outputs/apk/whatsmyip-android-debug-unaligned.apk
 
 device-launch-app:
 	adb shell am start -n $(PACKAGE)/$(ACTIVITY)
