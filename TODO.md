@@ -1,12 +1,12 @@
 # TODO
 
-- separate core component from app
-- whois tooltip on history page
 - achievements feature
 - send/share ip address feature
 - some usage analytics
 
 # DONE
+- whois tooltip on history page - no need
+- separate core component from app - done
 - ios version - done
 - straw-ios - done
 - do some tests of release apk on the device - done
