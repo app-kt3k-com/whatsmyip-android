@@ -27,6 +27,3 @@ node_modules
 
 # bower components
 bower_components
-
-# instrumented js
-src/main/js-cov
