@@ -3,10 +3,6 @@ apply plugin: 'idea'
 
 repositories {
     mavenCentral()
-
-    maven {
-        url 'http://kt3k.github.io/repository/maven/release'
-    }
 }
 
 buildscript {
@@ -24,11 +20,11 @@ tasks.withType(Compile) {
 }
 
 dependencies {
-    compile 'org.kt3k.straw:straw-android:0.6.2', {
+    compile 'org.kt3k.straw:straw-android:0.7.0', {
         exclude group: 'com.google.android'
     }
 
-    compile 'org.kt3k.straw:straw-android-plugin:0.7.1', {
+    compile 'org.kt3k.straw:straw-android-plugin:0.7.2', {
         exclude group: 'com.google.android'
     }
 }
